@@ -1,0 +1,21 @@
+[1.515s] Invoking command in '/home/tony/SKAI_clean_vision/src/vision_gui': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/tony/SKAI_clean_vision/build/vision_gui/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tony/SKAI_clean_vision/install/vision_gui/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/vision_gui build --build-base /home/tony/SKAI_clean_vision/build/vision_gui/build install --record /home/tony/SKAI_clean_vision/build/vision_gui/install.log --single-version-externally-managed install_data
+[1.727s] running egg_info
+[1.744s] writing ../../build/vision_gui/vision_gui.egg-info/PKG-INFO
+[1.744s] writing dependency_links to ../../build/vision_gui/vision_gui.egg-info/dependency_links.txt
+[1.744s] writing entry points to ../../build/vision_gui/vision_gui.egg-info/entry_points.txt
+[1.744s] writing requirements to ../../build/vision_gui/vision_gui.egg-info/requires.txt
+[1.744s] writing top-level names to ../../build/vision_gui/vision_gui.egg-info/top_level.txt
+[1.776s] reading manifest file '../../build/vision_gui/vision_gui.egg-info/SOURCES.txt'
+[1.777s] writing manifest file '../../build/vision_gui/vision_gui.egg-info/SOURCES.txt'
+[1.777s] running build
+[1.777s] running build_py
+[1.777s] running install
+[1.782s] running install_lib
+[1.799s] running install_data
+[1.799s] running install_egg_info
+[1.817s] removing '/home/tony/SKAI_clean_vision/install/vision_gui/lib/python3.12/site-packages/vision_gui-0.0.0-py3.12.egg-info' (and everything under it)
+[1.817s] Copying ../../build/vision_gui/vision_gui.egg-info to /home/tony/SKAI_clean_vision/install/vision_gui/lib/python3.12/site-packages/vision_gui-0.0.0-py3.12.egg-info
+[1.817s] running install_scripts
+[1.934s] Installing vision_gui script to /home/tony/SKAI_clean_vision/install/vision_gui/lib/vision_gui
+[1.935s] writing list of installed files to '/home/tony/SKAI_clean_vision/build/vision_gui/install.log'
+[2.037s] Invoked command in '/home/tony/SKAI_clean_vision/src/vision_gui' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/tony/SKAI_clean_vision/build/vision_gui/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tony/SKAI_clean_vision/install/vision_gui/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/vision_gui build --build-base /home/tony/SKAI_clean_vision/build/vision_gui/build install --record /home/tony/SKAI_clean_vision/build/vision_gui/install.log --single-version-externally-managed install_data

@@ -1,0 +1,16 @@
+package.xml
+setup.cfg
+setup.py
+../../build/mock_camera/mock_camera.egg-info/PKG-INFO
+../../build/mock_camera/mock_camera.egg-info/SOURCES.txt
+../../build/mock_camera/mock_camera.egg-info/dependency_links.txt
+../../build/mock_camera/mock_camera.egg-info/entry_points.txt
+../../build/mock_camera/mock_camera.egg-info/requires.txt
+../../build/mock_camera/mock_camera.egg-info/top_level.txt
+../../build/mock_camera/mock_camera.egg-info/zip-safe
+mock_camera/__init__.py
+mock_camera/mock_camera.py
+resource/mock_camera
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py

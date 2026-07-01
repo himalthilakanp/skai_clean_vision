@@ -1,0 +1,21 @@
+[1.505s] Invoking command in '/home/tony/SKAI_clean_vision/src/mock_camera': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/tony/SKAI_clean_vision/build/mock_camera/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tony/SKAI_clean_vision/install/mock_camera/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/mock_camera build --build-base /home/tony/SKAI_clean_vision/build/mock_camera/build install --record /home/tony/SKAI_clean_vision/build/mock_camera/install.log --single-version-externally-managed install_data
+[1.717s] running egg_info
+[1.732s] writing ../../build/mock_camera/mock_camera.egg-info/PKG-INFO
+[1.732s] writing dependency_links to ../../build/mock_camera/mock_camera.egg-info/dependency_links.txt
+[1.733s] writing entry points to ../../build/mock_camera/mock_camera.egg-info/entry_points.txt
+[1.733s] writing requirements to ../../build/mock_camera/mock_camera.egg-info/requires.txt
+[1.733s] writing top-level names to ../../build/mock_camera/mock_camera.egg-info/top_level.txt
+[1.764s] reading manifest file '../../build/mock_camera/mock_camera.egg-info/SOURCES.txt'
+[1.765s] writing manifest file '../../build/mock_camera/mock_camera.egg-info/SOURCES.txt'
+[1.765s] running build
+[1.765s] running build_py
+[1.765s] running install
+[1.770s] running install_lib
+[1.786s] running install_data
+[1.786s] running install_egg_info
+[1.803s] removing '/home/tony/SKAI_clean_vision/install/mock_camera/lib/python3.12/site-packages/mock_camera-0.0.0-py3.12.egg-info' (and everything under it)
+[1.803s] Copying ../../build/mock_camera/mock_camera.egg-info to /home/tony/SKAI_clean_vision/install/mock_camera/lib/python3.12/site-packages/mock_camera-0.0.0-py3.12.egg-info
+[1.804s] running install_scripts
+[1.906s] Installing mock_camera script to /home/tony/SKAI_clean_vision/install/mock_camera/lib/mock_camera
+[1.906s] writing list of installed files to '/home/tony/SKAI_clean_vision/build/mock_camera/install.log'
+[1.984s] Invoked command in '/home/tony/SKAI_clean_vision/src/mock_camera' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/tony/SKAI_clean_vision/build/mock_camera/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tony/SKAI_clean_vision/install/mock_camera/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/mock_camera build --build-base /home/tony/SKAI_clean_vision/build/mock_camera/build install --record /home/tony/SKAI_clean_vision/build/mock_camera/install.log --single-version-externally-managed install_data

@@ -1,0 +1,2 @@
+[console_scripts]
+add_leaf = skai_bringup.add_leaf:main

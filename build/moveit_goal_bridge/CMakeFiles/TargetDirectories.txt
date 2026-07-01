@@ -1,0 +1,10 @@
+/home/tony/SKAI_clean_vision/build/moveit_goal_bridge/CMakeFiles/uninstall.dir
+/home/tony/SKAI_clean_vision/build/moveit_goal_bridge/CMakeFiles/moveit_goal_bridge_uninstall.dir
+/home/tony/SKAI_clean_vision/build/moveit_goal_bridge/CMakeFiles/moveit_goal_bridge.dir
+/home/tony/SKAI_clean_vision/build/moveit_goal_bridge/CMakeFiles/test.dir
+/home/tony/SKAI_clean_vision/build/moveit_goal_bridge/CMakeFiles/edit_cache.dir
+/home/tony/SKAI_clean_vision/build/moveit_goal_bridge/CMakeFiles/rebuild_cache.dir
+/home/tony/SKAI_clean_vision/build/moveit_goal_bridge/CMakeFiles/list_install_components.dir
+/home/tony/SKAI_clean_vision/build/moveit_goal_bridge/CMakeFiles/install.dir
+/home/tony/SKAI_clean_vision/build/moveit_goal_bridge/CMakeFiles/install/local.dir
+/home/tony/SKAI_clean_vision/build/moveit_goal_bridge/CMakeFiles/install/strip.dir

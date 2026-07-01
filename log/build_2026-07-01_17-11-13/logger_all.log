@@ -1,0 +1,370 @@
+[0.078s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.078s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=16, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x77519d4a21e0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x77519d429b20>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x77519d429b20>>, mixin_verb=('build',))
+[0.105s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.105s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.105s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.105s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.105s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.105s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.105s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/tony/SKAI_clean_vision'
+[0.105s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.105s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.105s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.105s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.105s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.105s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.105s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.105s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.105s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.123s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(src/Assem2) by extensions ['ignore', 'ignore_ament_install']
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(src/Assem2) by extension 'ignore'
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(src/Assem2) by extension 'ignore_ament_install'
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(src/Assem2) by extensions ['colcon_pkg']
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(src/Assem2) by extension 'colcon_pkg'
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(src/Assem2) by extensions ['colcon_meta']
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(src/Assem2) by extension 'colcon_meta'
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(src/Assem2) by extensions ['ros']
+[0.124s] Level 1:colcon.colcon_core.package_identification:_identify(src/Assem2) by extension 'ros'
+[0.126s] DEBUG:colcon.colcon_core.package_identification:Package 'src/Assem2' with type 'ros.catkin' and name 'Assem2'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(src/arm_rviz) by extensions ['ignore', 'ignore_ament_install']
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(src/arm_rviz) by extension 'ignore'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(src/arm_rviz) by extension 'ignore_ament_install'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(src/arm_rviz) by extensions ['colcon_pkg']
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(src/arm_rviz) by extension 'colcon_pkg'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(src/arm_rviz) by extensions ['colcon_meta']
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(src/arm_rviz) by extension 'colcon_meta'
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(src/arm_rviz) by extensions ['ros']
+[0.126s] Level 1:colcon.colcon_core.package_identification:_identify(src/arm_rviz) by extension 'ros'
+[0.127s] DEBUG:colcon.colcon_core.package_identification:Package 'src/arm_rviz' with type 'ros.ament_python' and name 'arm_rviz'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src/mock_camera) by extensions ['ignore', 'ignore_ament_install']
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src/mock_camera) by extension 'ignore'
+[0.127s] Level 1:colcon.colcon_core.package_identification:_identify(src/mock_camera) by extension 'ignore_ament_install'
+[0.128s] Level 1:colcon.colcon_core.package_identification:_identify(src/mock_camera) by extensions ['colcon_pkg']
+[0.128s] Level 1:colcon.colcon_core.package_identification:_identify(src/mock_camera) by extension 'colcon_pkg'
+[0.128s] Level 1:colcon.colcon_core.package_identification:_identify(src/mock_camera) by extensions ['colcon_meta']
+[0.128s] Level 1:colcon.colcon_core.package_identification:_identify(src/mock_camera) by extension 'colcon_meta'
+[0.128s] Level 1:colcon.colcon_core.package_identification:_identify(src/mock_camera) by extensions ['ros']
+[0.128s] Level 1:colcon.colcon_core.package_identification:_identify(src/mock_camera) by extension 'ros'
+[0.129s] DEBUG:colcon.colcon_core.package_identification:Package 'src/mock_camera' with type 'ros.ament_python' and name 'mock_camera'
+[0.129s] Level 1:colcon.colcon_core.package_identification:_identify(src/moveit_goal_bridge) by extensions ['ignore', 'ignore_ament_install']
+[0.129s] Level 1:colcon.colcon_core.package_identification:_identify(src/moveit_goal_bridge) by extension 'ignore'
+[0.129s] Level 1:colcon.colcon_core.package_identification:_identify(src/moveit_goal_bridge) by extension 'ignore_ament_install'
+[0.129s] Level 1:colcon.colcon_core.package_identification:_identify(src/moveit_goal_bridge) by extensions ['colcon_pkg']
+[0.129s] Level 1:colcon.colcon_core.package_identification:_identify(src/moveit_goal_bridge) by extension 'colcon_pkg'
+[0.129s] Level 1:colcon.colcon_core.package_identification:_identify(src/moveit_goal_bridge) by extensions ['colcon_meta']
+[0.129s] Level 1:colcon.colcon_core.package_identification:_identify(src/moveit_goal_bridge) by extension 'colcon_meta'
+[0.129s] Level 1:colcon.colcon_core.package_identification:_identify(src/moveit_goal_bridge) by extensions ['ros']
+[0.129s] Level 1:colcon.colcon_core.package_identification:_identify(src/moveit_goal_bridge) by extension 'ros'
+[0.130s] DEBUG:colcon.colcon_core.package_identification:Package 'src/moveit_goal_bridge' with type 'ros.ament_cmake' and name 'moveit_goal_bridge'
+[0.130s] Level 1:colcon.colcon_core.package_identification:_identify(src/red_detector) by extensions ['ignore', 'ignore_ament_install']
+[0.130s] Level 1:colcon.colcon_core.package_identification:_identify(src/red_detector) by extension 'ignore'
+[0.130s] Level 1:colcon.colcon_core.package_identification:_identify(src/red_detector) by extension 'ignore_ament_install'
+[0.130s] Level 1:colcon.colcon_core.package_identification:_identify(src/red_detector) by extensions ['colcon_pkg']
+[0.130s] Level 1:colcon.colcon_core.package_identification:_identify(src/red_detector) by extension 'colcon_pkg'
+[0.130s] Level 1:colcon.colcon_core.package_identification:_identify(src/red_detector) by extensions ['colcon_meta']
+[0.130s] Level 1:colcon.colcon_core.package_identification:_identify(src/red_detector) by extension 'colcon_meta'
+[0.130s] Level 1:colcon.colcon_core.package_identification:_identify(src/red_detector) by extensions ['ros']
+[0.130s] Level 1:colcon.colcon_core.package_identification:_identify(src/red_detector) by extension 'ros'
+[0.130s] DEBUG:colcon.colcon_core.package_identification:Package 'src/red_detector' with type 'ros.ament_python' and name 'red_detector'
+[0.130s] Level 1:colcon.colcon_core.package_identification:_identify(src/skai_bringup) by extensions ['ignore', 'ignore_ament_install']
+[0.131s] Level 1:colcon.colcon_core.package_identification:_identify(src/skai_bringup) by extension 'ignore'
+[0.131s] Level 1:colcon.colcon_core.package_identification:_identify(src/skai_bringup) by extension 'ignore_ament_install'
+[0.131s] Level 1:colcon.colcon_core.package_identification:_identify(src/skai_bringup) by extensions ['colcon_pkg']
+[0.131s] Level 1:colcon.colcon_core.package_identification:_identify(src/skai_bringup) by extension 'colcon_pkg'
+[0.131s] Level 1:colcon.colcon_core.package_identification:_identify(src/skai_bringup) by extensions ['colcon_meta']
+[0.131s] Level 1:colcon.colcon_core.package_identification:_identify(src/skai_bringup) by extension 'colcon_meta'
+[0.131s] Level 1:colcon.colcon_core.package_identification:_identify(src/skai_bringup) by extensions ['ros']
+[0.131s] Level 1:colcon.colcon_core.package_identification:_identify(src/skai_bringup) by extension 'ros'
+[0.131s] DEBUG:colcon.colcon_core.package_identification:Package 'src/skai_bringup' with type 'ros.ament_python' and name 'skai_bringup'
+[0.131s] Level 1:colcon.colcon_core.package_identification:_identify(src/skai_hardware_v2) by extensions ['ignore', 'ignore_ament_install']
+[0.131s] Level 1:colcon.colcon_core.package_identification:_identify(src/skai_hardware_v2) by extension 'ignore'
+[0.131s] Level 1:colcon.colcon_core.package_identification:_identify(src/skai_hardware_v2) by extension 'ignore_ament_install'
+[0.131s] Level 1:colcon.colcon_core.package_identification:_identify(src/skai_hardware_v2) by extensions ['colcon_pkg']
+[0.131s] Level 1:colcon.colcon_core.package_identification:_identify(src/skai_hardware_v2) by extension 'colcon_pkg'
+[0.131s] Level 1:colcon.colcon_core.package_identification:_identify(src/skai_hardware_v2) by extensions ['colcon_meta']
+[0.131s] Level 1:colcon.colcon_core.package_identification:_identify(src/skai_hardware_v2) by extension 'colcon_meta'
+[0.131s] Level 1:colcon.colcon_core.package_identification:_identify(src/skai_hardware_v2) by extensions ['ros']
+[0.131s] Level 1:colcon.colcon_core.package_identification:_identify(src/skai_hardware_v2) by extension 'ros'
+[0.132s] DEBUG:colcon.colcon_core.package_identification:Package 'src/skai_hardware_v2' with type 'ros.ament_cmake' and name 'skai_hardware_v2'
+[0.132s] Level 1:colcon.colcon_core.package_identification:_identify(src/skai_moveit_config) by extensions ['ignore', 'ignore_ament_install']
+[0.132s] Level 1:colcon.colcon_core.package_identification:_identify(src/skai_moveit_config) by extension 'ignore'
+[0.132s] Level 1:colcon.colcon_core.package_identification:_identify(src/skai_moveit_config) by extension 'ignore_ament_install'
+[0.132s] Level 1:colcon.colcon_core.package_identification:_identify(src/skai_moveit_config) by extensions ['colcon_pkg']
+[0.132s] Level 1:colcon.colcon_core.package_identification:_identify(src/skai_moveit_config) by extension 'colcon_pkg'
+[0.132s] Level 1:colcon.colcon_core.package_identification:_identify(src/skai_moveit_config) by extensions ['colcon_meta']
+[0.132s] Level 1:colcon.colcon_core.package_identification:_identify(src/skai_moveit_config) by extension 'colcon_meta'
+[0.132s] Level 1:colcon.colcon_core.package_identification:_identify(src/skai_moveit_config) by extensions ['ros']
+[0.132s] Level 1:colcon.colcon_core.package_identification:_identify(src/skai_moveit_config) by extension 'ros'
+[0.132s] DEBUG:colcon.colcon_core.package_identification:Package 'src/skai_moveit_config' with type 'ros.ament_cmake' and name 'skai_moveit_config'
+[0.132s] Level 1:colcon.colcon_core.package_identification:_identify(src/vision_gui) by extensions ['ignore', 'ignore_ament_install']
+[0.132s] Level 1:colcon.colcon_core.package_identification:_identify(src/vision_gui) by extension 'ignore'
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(src/vision_gui) by extension 'ignore_ament_install'
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(src/vision_gui) by extensions ['colcon_pkg']
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(src/vision_gui) by extension 'colcon_pkg'
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(src/vision_gui) by extensions ['colcon_meta']
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(src/vision_gui) by extension 'colcon_meta'
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(src/vision_gui) by extensions ['ros']
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(src/vision_gui) by extension 'ros'
+[0.133s] DEBUG:colcon.colcon_core.package_identification:Package 'src/vision_gui' with type 'ros.ament_python' and name 'vision_gui'
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(src/vision_moveit_bridge) by extensions ['ignore', 'ignore_ament_install']
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(src/vision_moveit_bridge) by extension 'ignore'
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(src/vision_moveit_bridge) by extension 'ignore_ament_install'
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(src/vision_moveit_bridge) by extensions ['colcon_pkg']
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(src/vision_moveit_bridge) by extension 'colcon_pkg'
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(src/vision_moveit_bridge) by extensions ['colcon_meta']
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(src/vision_moveit_bridge) by extension 'colcon_meta'
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(src/vision_moveit_bridge) by extensions ['ros']
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(src/vision_moveit_bridge) by extension 'ros'
+[0.134s] DEBUG:colcon.colcon_core.package_identification:Package 'src/vision_moveit_bridge' with type 'ros.ament_python' and name 'vision_moveit_bridge'
+[0.134s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.134s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.134s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.134s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.134s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.146s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.146s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.148s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 9 installed packages in /home/tony/SKAI_clean_vision/install
+[0.149s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 454 installed packages in /opt/ros/jazzy
+[0.150s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.186s] Level 5:colcon.colcon_core.verb:set package 'Assem2' build argument 'cmake_args' from command line to 'None'
+[0.186s] Level 5:colcon.colcon_core.verb:set package 'Assem2' build argument 'cmake_target' from command line to 'None'
+[0.186s] Level 5:colcon.colcon_core.verb:set package 'Assem2' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.186s] Level 5:colcon.colcon_core.verb:set package 'Assem2' build argument 'cmake_clean_cache' from command line to 'False'
+[0.186s] Level 5:colcon.colcon_core.verb:set package 'Assem2' build argument 'cmake_clean_first' from command line to 'False'
+[0.186s] Level 5:colcon.colcon_core.verb:set package 'Assem2' build argument 'cmake_force_configure' from command line to 'False'
+[0.186s] Level 5:colcon.colcon_core.verb:set package 'Assem2' build argument 'ament_cmake_args' from command line to 'None'
+[0.186s] Level 5:colcon.colcon_core.verb:set package 'Assem2' build argument 'catkin_cmake_args' from command line to 'None'
+[0.186s] Level 5:colcon.colcon_core.verb:set package 'Assem2' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.186s] DEBUG:colcon.colcon_core.verb:Building package 'Assem2' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tony/SKAI_clean_vision/build/Assem2', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tony/SKAI_clean_vision/install/Assem2', 'merge_install': False, 'path': '/home/tony/SKAI_clean_vision/src/Assem2', 'symlink_install': False, 'test_result_base': None}
+[0.186s] Level 5:colcon.colcon_core.verb:set package 'arm_rviz' build argument 'cmake_args' from command line to 'None'
+[0.186s] Level 5:colcon.colcon_core.verb:set package 'arm_rviz' build argument 'cmake_target' from command line to 'None'
+[0.186s] Level 5:colcon.colcon_core.verb:set package 'arm_rviz' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.186s] Level 5:colcon.colcon_core.verb:set package 'arm_rviz' build argument 'cmake_clean_cache' from command line to 'False'
+[0.186s] Level 5:colcon.colcon_core.verb:set package 'arm_rviz' build argument 'cmake_clean_first' from command line to 'False'
+[0.186s] Level 5:colcon.colcon_core.verb:set package 'arm_rviz' build argument 'cmake_force_configure' from command line to 'False'
+[0.186s] Level 5:colcon.colcon_core.verb:set package 'arm_rviz' build argument 'ament_cmake_args' from command line to 'None'
+[0.186s] Level 5:colcon.colcon_core.verb:set package 'arm_rviz' build argument 'catkin_cmake_args' from command line to 'None'
+[0.186s] Level 5:colcon.colcon_core.verb:set package 'arm_rviz' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.186s] DEBUG:colcon.colcon_core.verb:Building package 'arm_rviz' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tony/SKAI_clean_vision/build/arm_rviz', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tony/SKAI_clean_vision/install/arm_rviz', 'merge_install': False, 'path': '/home/tony/SKAI_clean_vision/src/arm_rviz', 'symlink_install': False, 'test_result_base': None}
+[0.186s] Level 5:colcon.colcon_core.verb:set package 'mock_camera' build argument 'cmake_args' from command line to 'None'
+[0.186s] Level 5:colcon.colcon_core.verb:set package 'mock_camera' build argument 'cmake_target' from command line to 'None'
+[0.186s] Level 5:colcon.colcon_core.verb:set package 'mock_camera' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.186s] Level 5:colcon.colcon_core.verb:set package 'mock_camera' build argument 'cmake_clean_cache' from command line to 'False'
+[0.186s] Level 5:colcon.colcon_core.verb:set package 'mock_camera' build argument 'cmake_clean_first' from command line to 'False'
+[0.186s] Level 5:colcon.colcon_core.verb:set package 'mock_camera' build argument 'cmake_force_configure' from command line to 'False'
+[0.186s] Level 5:colcon.colcon_core.verb:set package 'mock_camera' build argument 'ament_cmake_args' from command line to 'None'
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'mock_camera' build argument 'catkin_cmake_args' from command line to 'None'
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'mock_camera' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.187s] DEBUG:colcon.colcon_core.verb:Building package 'mock_camera' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tony/SKAI_clean_vision/build/mock_camera', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tony/SKAI_clean_vision/install/mock_camera', 'merge_install': False, 'path': '/home/tony/SKAI_clean_vision/src/mock_camera', 'symlink_install': False, 'test_result_base': None}
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'moveit_goal_bridge' build argument 'cmake_args' from command line to 'None'
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'moveit_goal_bridge' build argument 'cmake_target' from command line to 'None'
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'moveit_goal_bridge' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'moveit_goal_bridge' build argument 'cmake_clean_cache' from command line to 'False'
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'moveit_goal_bridge' build argument 'cmake_clean_first' from command line to 'False'
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'moveit_goal_bridge' build argument 'cmake_force_configure' from command line to 'False'
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'moveit_goal_bridge' build argument 'ament_cmake_args' from command line to 'None'
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'moveit_goal_bridge' build argument 'catkin_cmake_args' from command line to 'None'
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'moveit_goal_bridge' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.187s] DEBUG:colcon.colcon_core.verb:Building package 'moveit_goal_bridge' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tony/SKAI_clean_vision/build/moveit_goal_bridge', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tony/SKAI_clean_vision/install/moveit_goal_bridge', 'merge_install': False, 'path': '/home/tony/SKAI_clean_vision/src/moveit_goal_bridge', 'symlink_install': False, 'test_result_base': None}
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'red_detector' build argument 'cmake_args' from command line to 'None'
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'red_detector' build argument 'cmake_target' from command line to 'None'
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'red_detector' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'red_detector' build argument 'cmake_clean_cache' from command line to 'False'
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'red_detector' build argument 'cmake_clean_first' from command line to 'False'
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'red_detector' build argument 'cmake_force_configure' from command line to 'False'
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'red_detector' build argument 'ament_cmake_args' from command line to 'None'
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'red_detector' build argument 'catkin_cmake_args' from command line to 'None'
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'red_detector' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.187s] DEBUG:colcon.colcon_core.verb:Building package 'red_detector' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tony/SKAI_clean_vision/build/red_detector', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tony/SKAI_clean_vision/install/red_detector', 'merge_install': False, 'path': '/home/tony/SKAI_clean_vision/src/red_detector', 'symlink_install': False, 'test_result_base': None}
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'skai_bringup' build argument 'cmake_args' from command line to 'None'
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'skai_bringup' build argument 'cmake_target' from command line to 'None'
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'skai_bringup' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'skai_bringup' build argument 'cmake_clean_cache' from command line to 'False'
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'skai_bringup' build argument 'cmake_clean_first' from command line to 'False'
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'skai_bringup' build argument 'cmake_force_configure' from command line to 'False'
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'skai_bringup' build argument 'ament_cmake_args' from command line to 'None'
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'skai_bringup' build argument 'catkin_cmake_args' from command line to 'None'
+[0.187s] Level 5:colcon.colcon_core.verb:set package 'skai_bringup' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.187s] DEBUG:colcon.colcon_core.verb:Building package 'skai_bringup' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tony/SKAI_clean_vision/build/skai_bringup', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tony/SKAI_clean_vision/install/skai_bringup', 'merge_install': False, 'path': '/home/tony/SKAI_clean_vision/src/skai_bringup', 'symlink_install': False, 'test_result_base': None}
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'skai_hardware_v2' build argument 'cmake_args' from command line to 'None'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'skai_hardware_v2' build argument 'cmake_target' from command line to 'None'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'skai_hardware_v2' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'skai_hardware_v2' build argument 'cmake_clean_cache' from command line to 'False'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'skai_hardware_v2' build argument 'cmake_clean_first' from command line to 'False'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'skai_hardware_v2' build argument 'cmake_force_configure' from command line to 'False'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'skai_hardware_v2' build argument 'ament_cmake_args' from command line to 'None'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'skai_hardware_v2' build argument 'catkin_cmake_args' from command line to 'None'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'skai_hardware_v2' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.188s] DEBUG:colcon.colcon_core.verb:Building package 'skai_hardware_v2' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tony/SKAI_clean_vision/build/skai_hardware_v2', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tony/SKAI_clean_vision/install/skai_hardware_v2', 'merge_install': False, 'path': '/home/tony/SKAI_clean_vision/src/skai_hardware_v2', 'symlink_install': False, 'test_result_base': None}
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'vision_gui' build argument 'cmake_args' from command line to 'None'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'vision_gui' build argument 'cmake_target' from command line to 'None'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'vision_gui' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'vision_gui' build argument 'cmake_clean_cache' from command line to 'False'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'vision_gui' build argument 'cmake_clean_first' from command line to 'False'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'vision_gui' build argument 'cmake_force_configure' from command line to 'False'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'vision_gui' build argument 'ament_cmake_args' from command line to 'None'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'vision_gui' build argument 'catkin_cmake_args' from command line to 'None'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'vision_gui' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.188s] DEBUG:colcon.colcon_core.verb:Building package 'vision_gui' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tony/SKAI_clean_vision/build/vision_gui', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tony/SKAI_clean_vision/install/vision_gui', 'merge_install': False, 'path': '/home/tony/SKAI_clean_vision/src/vision_gui', 'symlink_install': False, 'test_result_base': None}
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'vision_moveit_bridge' build argument 'cmake_args' from command line to 'None'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'vision_moveit_bridge' build argument 'cmake_target' from command line to 'None'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'vision_moveit_bridge' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'vision_moveit_bridge' build argument 'cmake_clean_cache' from command line to 'False'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'vision_moveit_bridge' build argument 'cmake_clean_first' from command line to 'False'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'vision_moveit_bridge' build argument 'cmake_force_configure' from command line to 'False'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'vision_moveit_bridge' build argument 'ament_cmake_args' from command line to 'None'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'vision_moveit_bridge' build argument 'catkin_cmake_args' from command line to 'None'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'vision_moveit_bridge' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.188s] DEBUG:colcon.colcon_core.verb:Building package 'vision_moveit_bridge' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tony/SKAI_clean_vision/build/vision_moveit_bridge', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tony/SKAI_clean_vision/install/vision_moveit_bridge', 'merge_install': False, 'path': '/home/tony/SKAI_clean_vision/src/vision_moveit_bridge', 'symlink_install': False, 'test_result_base': None}
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'skai_moveit_config' build argument 'cmake_args' from command line to 'None'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'skai_moveit_config' build argument 'cmake_target' from command line to 'None'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'skai_moveit_config' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'skai_moveit_config' build argument 'cmake_clean_cache' from command line to 'False'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'skai_moveit_config' build argument 'cmake_clean_first' from command line to 'False'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'skai_moveit_config' build argument 'cmake_force_configure' from command line to 'False'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'skai_moveit_config' build argument 'ament_cmake_args' from command line to 'None'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'skai_moveit_config' build argument 'catkin_cmake_args' from command line to 'None'
+[0.188s] Level 5:colcon.colcon_core.verb:set package 'skai_moveit_config' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.188s] DEBUG:colcon.colcon_core.verb:Building package 'skai_moveit_config' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tony/SKAI_clean_vision/build/skai_moveit_config', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tony/SKAI_clean_vision/install/skai_moveit_config', 'merge_install': False, 'path': '/home/tony/SKAI_clean_vision/src/skai_moveit_config', 'symlink_install': False, 'test_result_base': None}
+[0.188s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.189s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.189s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/tony/SKAI_clean_vision/src/arm_rviz' with build type 'ament_python'
+[0.189s] Level 1:colcon.colcon_core.shell:create_environment_hook('arm_rviz', 'ament_prefix_path')
+[0.191s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.191s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tony/SKAI_clean_vision/install/arm_rviz/share/arm_rviz/hook/ament_prefix_path.ps1'
+[0.191s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tony/SKAI_clean_vision/install/arm_rviz/share/arm_rviz/hook/ament_prefix_path.dsv'
+[0.192s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tony/SKAI_clean_vision/install/arm_rviz/share/arm_rviz/hook/ament_prefix_path.sh'
+[0.192s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.192s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.195s] INFO:colcon.colcon_ros.task.catkin.build:Building ROS package in '/home/tony/SKAI_clean_vision/src/Assem2' with build type 'catkin'
+[0.195s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/tony/SKAI_clean_vision/src/Assem2'
+[0.195s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.195s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.198s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/tony/SKAI_clean_vision/src/mock_camera' with build type 'ament_python'
+[0.198s] Level 1:colcon.colcon_core.shell:create_environment_hook('mock_camera', 'ament_prefix_path')
+[0.198s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tony/SKAI_clean_vision/install/mock_camera/share/mock_camera/hook/ament_prefix_path.ps1'
+[0.199s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tony/SKAI_clean_vision/install/mock_camera/share/mock_camera/hook/ament_prefix_path.dsv'
+[0.199s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tony/SKAI_clean_vision/install/mock_camera/share/mock_camera/hook/ament_prefix_path.sh'
+[0.199s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.199s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.202s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/tony/SKAI_clean_vision/src/moveit_goal_bridge' with build type 'ament_cmake'
+[0.202s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/tony/SKAI_clean_vision/src/moveit_goal_bridge'
+[0.202s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.202s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.205s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/tony/SKAI_clean_vision/src/red_detector' with build type 'ament_python'
+[0.205s] Level 1:colcon.colcon_core.shell:create_environment_hook('red_detector', 'ament_prefix_path')
+[0.205s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tony/SKAI_clean_vision/install/red_detector/share/red_detector/hook/ament_prefix_path.ps1'
+[0.205s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tony/SKAI_clean_vision/install/red_detector/share/red_detector/hook/ament_prefix_path.dsv'
+[0.205s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tony/SKAI_clean_vision/install/red_detector/share/red_detector/hook/ament_prefix_path.sh'
+[0.206s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.206s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.208s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/tony/SKAI_clean_vision/src/skai_bringup' with build type 'ament_python'
+[0.208s] Level 1:colcon.colcon_core.shell:create_environment_hook('skai_bringup', 'ament_prefix_path')
+[0.208s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tony/SKAI_clean_vision/install/skai_bringup/share/skai_bringup/hook/ament_prefix_path.ps1'
+[0.208s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tony/SKAI_clean_vision/install/skai_bringup/share/skai_bringup/hook/ament_prefix_path.dsv'
+[0.209s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tony/SKAI_clean_vision/install/skai_bringup/share/skai_bringup/hook/ament_prefix_path.sh'
+[0.209s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.209s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.211s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/tony/SKAI_clean_vision/src/skai_hardware_v2' with build type 'ament_cmake'
+[0.211s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/tony/SKAI_clean_vision/src/skai_hardware_v2'
+[0.212s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.212s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.214s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/tony/SKAI_clean_vision/src/vision_gui' with build type 'ament_python'
+[0.214s] Level 1:colcon.colcon_core.shell:create_environment_hook('vision_gui', 'ament_prefix_path')
+[0.214s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tony/SKAI_clean_vision/install/vision_gui/share/vision_gui/hook/ament_prefix_path.ps1'
+[0.214s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tony/SKAI_clean_vision/install/vision_gui/share/vision_gui/hook/ament_prefix_path.dsv'
+[0.215s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tony/SKAI_clean_vision/install/vision_gui/share/vision_gui/hook/ament_prefix_path.sh'
+[0.215s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.215s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.218s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/tony/SKAI_clean_vision/src/vision_moveit_bridge' with build type 'ament_python'
+[0.218s] Level 1:colcon.colcon_core.shell:create_environment_hook('vision_moveit_bridge', 'ament_prefix_path')
+[0.218s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tony/SKAI_clean_vision/install/vision_moveit_bridge/share/vision_moveit_bridge/hook/ament_prefix_path.ps1'
+[0.218s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/tony/SKAI_clean_vision/install/vision_moveit_bridge/share/vision_moveit_bridge/hook/ament_prefix_path.dsv'
+[0.219s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/tony/SKAI_clean_vision/install/vision_moveit_bridge/share/vision_moveit_bridge/hook/ament_prefix_path.sh'
+[0.219s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.219s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.369s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/tony/SKAI_clean_vision/src/arm_rviz'
+[0.369s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.369s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.373s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tony/SKAI_clean_vision/build/Assem2': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/tony/SKAI_clean_vision/src/Assem2 -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/tony/SKAI_clean_vision/install/Assem2
+[0.526s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/tony/SKAI_clean_vision/src/mock_camera'
+[0.526s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.526s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.531s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tony/SKAI_clean_vision/build/moveit_goal_bridge': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tony/SKAI_clean_vision/install/vision_moveit_bridge:/home/tony/SKAI_clean_vision/install/vision_gui:/home/tony/SKAI_clean_vision/install/skai_bringup:/home/tony/SKAI_clean_vision/install/red_detector:/home/tony/SKAI_clean_vision/install/mock_camera:/home/tony/SKAI_clean_vision/install/arm_rviz:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tony/SKAI_clean_vision/build/moveit_goal_bridge -- -j16 -l16
+[0.688s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/tony/SKAI_clean_vision/src/red_detector'
+[0.688s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.688s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.836s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/tony/SKAI_clean_vision/src/skai_bringup'
+[0.836s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.836s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.840s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tony/SKAI_clean_vision/build/skai_hardware_v2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tony/SKAI_clean_vision/install/vision_moveit_bridge:/home/tony/SKAI_clean_vision/install/vision_gui:/home/tony/SKAI_clean_vision/install/skai_bringup:/home/tony/SKAI_clean_vision/install/red_detector:/home/tony/SKAI_clean_vision/install/mock_camera:/home/tony/SKAI_clean_vision/install/arm_rviz:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tony/SKAI_clean_vision/build/skai_hardware_v2 -- -j16 -l16
+[0.990s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/tony/SKAI_clean_vision/src/vision_gui'
+[0.990s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.990s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.148s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/tony/SKAI_clean_vision/src/vision_moveit_bridge'
+[1.148s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.148s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.151s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tony/SKAI_clean_vision/build/Assem2' returned '1': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/tony/SKAI_clean_vision/src/Assem2 -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/tony/SKAI_clean_vision/install/Assem2
+[1.152s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tony/SKAI_clean_vision/build/moveit_goal_bridge' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tony/SKAI_clean_vision/install/vision_moveit_bridge:/home/tony/SKAI_clean_vision/install/vision_gui:/home/tony/SKAI_clean_vision/install/skai_bringup:/home/tony/SKAI_clean_vision/install/red_detector:/home/tony/SKAI_clean_vision/install/mock_camera:/home/tony/SKAI_clean_vision/install/arm_rviz:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tony/SKAI_clean_vision/build/moveit_goal_bridge -- -j16 -l16
+[1.158s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tony/SKAI_clean_vision/build/moveit_goal_bridge': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tony/SKAI_clean_vision/install/vision_moveit_bridge:/home/tony/SKAI_clean_vision/install/vision_gui:/home/tony/SKAI_clean_vision/install/skai_bringup:/home/tony/SKAI_clean_vision/install/red_detector:/home/tony/SKAI_clean_vision/install/mock_camera:/home/tony/SKAI_clean_vision/install/arm_rviz:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tony/SKAI_clean_vision/build/moveit_goal_bridge
+[1.158s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tony/SKAI_clean_vision/build/skai_hardware_v2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tony/SKAI_clean_vision/install/vision_moveit_bridge:/home/tony/SKAI_clean_vision/install/vision_gui:/home/tony/SKAI_clean_vision/install/skai_bringup:/home/tony/SKAI_clean_vision/install/red_detector:/home/tony/SKAI_clean_vision/install/mock_camera:/home/tony/SKAI_clean_vision/install/arm_rviz:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tony/SKAI_clean_vision/build/skai_hardware_v2 -- -j16 -l16
+[1.159s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tony/SKAI_clean_vision/build/skai_hardware_v2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tony/SKAI_clean_vision/install/vision_moveit_bridge:/home/tony/SKAI_clean_vision/install/vision_gui:/home/tony/SKAI_clean_vision/install/skai_bringup:/home/tony/SKAI_clean_vision/install/red_detector:/home/tony/SKAI_clean_vision/install/mock_camera:/home/tony/SKAI_clean_vision/install/arm_rviz:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tony/SKAI_clean_vision/build/skai_hardware_v2
+[1.169s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(Assem2)
+[1.171s] Level 1:colcon.colcon_core.environment:checking '/home/tony/SKAI_clean_vision/install/Assem2' for CMake module files
+[1.172s] Level 1:colcon.colcon_core.environment:checking '/home/tony/SKAI_clean_vision/install/Assem2' for CMake config files
+[1.172s] Level 1:colcon.colcon_core.environment:checking '/home/tony/SKAI_clean_vision/install/Assem2/bin'
+[1.172s] Level 1:colcon.colcon_core.environment:checking '/home/tony/SKAI_clean_vision/install/Assem2/lib/pkgconfig/Assem2.pc'
+[1.172s] Level 1:colcon.colcon_core.environment:checking '/home/tony/SKAI_clean_vision/install/Assem2/lib/python3.12/site-packages'
+[1.173s] Level 1:colcon.colcon_core.environment:checking '/home/tony/SKAI_clean_vision/install/Assem2/bin'
+[1.173s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/SKAI_clean_vision/install/Assem2/share/Assem2/package.ps1'
+[1.174s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tony/SKAI_clean_vision/install/Assem2/share/Assem2/package.dsv'
+[1.175s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/SKAI_clean_vision/install/Assem2/share/Assem2/package.sh'
+[1.175s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/SKAI_clean_vision/install/Assem2/share/Assem2/package.bash'
+[1.176s] INFO:colcon.colcon_core.shell:Creating package script '/home/tony/SKAI_clean_vision/install/Assem2/share/Assem2/package.zsh'
+[1.176s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tony/SKAI_clean_vision/install/Assem2/share/colcon-core/packages/Assem2)
+[1.761s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[1.762s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[1.762s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '1'
+[1.762s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[1.766s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[1.766s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[1.766s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[1.776s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[1.776s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/tony/SKAI_clean_vision/install/local_setup.ps1'
+[1.777s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/tony/SKAI_clean_vision/install/_local_setup_util_ps1.py'
+[1.778s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/tony/SKAI_clean_vision/install/setup.ps1'
+[1.778s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/tony/SKAI_clean_vision/install/local_setup.sh'
+[1.779s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/tony/SKAI_clean_vision/install/_local_setup_util_sh.py'
+[1.779s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/tony/SKAI_clean_vision/install/setup.sh'
+[1.780s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/tony/SKAI_clean_vision/install/local_setup.bash'
+[1.780s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/tony/SKAI_clean_vision/install/setup.bash'
+[1.781s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/tony/SKAI_clean_vision/install/local_setup.zsh'
+[1.781s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/tony/SKAI_clean_vision/install/setup.zsh'

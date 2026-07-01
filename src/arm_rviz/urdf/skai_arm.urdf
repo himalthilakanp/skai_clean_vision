@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Assem2">
+  <link
+    name="BASE">
+    <inertial>
+      <origin
+        xyz="0.0079534 0.010726 0.071969"
+        rpy="0 0 0" />
+      <mass
+        value="3.1262" />
+      <inertia
+        ixx="0.044505"
+        ixy="2.2803E-05"
+        ixz="-0.00099255"
+        iyy="0.030652"
+        iyz="0.010312"
+        izz="0.041054" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_rviz/meshes/BASE.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_rviz/meshes/BASE.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="J_1">
+    <inertial>
+      <origin
+        xyz="0.0049849 0.10284 -0.012408"
+        rpy="0 0 0" />
+      <mass
+        value="1.3715" />
+      <inertia
+        ixx="0.01019"
+        ixy="3.5681E-05"
+        ixz="-8.4694E-05"
+        iyy="0.0051727"
+        iyz="0.0018992"
+        izz="0.007558" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_rviz/meshes/J_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_rviz/meshes/J_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ROT_1"
+    type="revolute">
+    <origin
+      xyz="-0.004 -0.03 0.187"
+      rpy="1.5708 0 0" />
+    <parent
+      link="BASE" />
+    <child
+      link="J_1" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="10"
+      velocity="1" />
+  </joint>
+  <link
+    name="J_2">
+    <inertial>
+      <origin
+        xyz="-0.044386 0.012377 0.28555"
+        rpy="0 0 0" />
+      <mass
+        value="0.9257" />
+      <inertia
+        ixx="0.03108"
+        ixy="8.8419E-05"
+        ixz="0.0029235"
+        iyy="0.031068"
+        iyz="2.3458E-05"
+        izz="0.0024953" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_rviz/meshes/J_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_rviz/meshes/J_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="PITCH_1"
+    type="revolute">
+    <origin
+      xyz="-0.053 0.095 0"
+      rpy="0 0 0" />
+    <parent
+      link="J_1" />
+    <child
+      link="J_2" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="0.05"
+      effort="10"
+      velocity="1" />
+  </joint>
+  <link
+    name="J_3">
+    <inertial>
+      <origin
+        xyz="0.043959 0.0012504 0.33095"
+        rpy="0 0 0" />
+      <mass
+        value="0.89411" />
+      <inertia
+        ixx="0.018389"
+        ixy="-7.7356E-07"
+        ixz="-0.00084534"
+        iyy="0.018267"
+        iyz="0.00014053"
+        izz="0.0015401" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_rviz/meshes/J_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_rviz/meshes/J_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="PITCH_2"
+    type="revolute">
+    <origin
+      xyz="-0.01975 0 0.429"
+      rpy="0 0 0" />
+    <parent
+      link="J_2" />
+    <child
+      link="J_3" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-2.7"
+      upper="2.7"
+      effort="10"
+      velocity="1" />
+  </joint>
+  <link
+    name="J_4">
+    <inertial>
+      <origin
+        xyz="-0.07 -0.037074 -5.7068E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.69469" />
+      <inertia
+        ixx="0.0011674"
+        ixy="-0.00010459"
+        ixz="2.4362E-07"
+        iyy="0.0011193"
+        iyz="3.3035E-07"
+        izz="0.0012852" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_rviz/meshes/J_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_rviz/meshes/J_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="PITCH_3"
+    type="revolute">
+    <origin
+      xyz="0.00825 0 0.41"
+      rpy="0 0 0" />
+    <parent
+      link="J_3" />
+    <child
+      link="J_4" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="10"
+      velocity="1" />
+  </joint>
+  <link
+    name="J_5">
+    <inertial>
+      <origin
+        xyz="-0.044658 -0.048391 5.6298E-05"
+        rpy="0 0 0" />
+      <mass
+        value="1.0061" />
+      <inertia
+        ixx="0.0027189"
+        ixy="0.00057915"
+        ixz="2.5834E-06"
+        iyy="0.002269"
+        iyz="-2.933E-06"
+        izz="0.0032126" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_rviz/meshes/J_5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_rviz/meshes/J_5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ROT_2"
+    type="revolute">
+    <origin
+      xyz="-0.075 -0.082 0"
+      rpy="0 0 0" />
+    <parent
+      link="J_4" />
+    <child
+      link="J_5" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="10"
+      velocity="1" />
+  </joint>
+  <link
+    name="J_6">
+    <inertial>
+      <origin
+        xyz="0.15572 0.00018089 0.0036627"
+        rpy="0 0 0" />
+      <mass
+        value="0.19696" />
+      <inertia
+        ixx="0.00021541"
+        ixy="8.9228E-09"
+        ixz="4.5806E-06"
+        iyy="0.0001125"
+        iyz="5.9747E-07"
+        izz="0.00022755" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_rviz/meshes/J_6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_rviz/meshes/J_6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ROT_3"
+    type="revolute">
+    <origin
+      xyz="-0.29365 -0.072 -0.0028845"
+      rpy="0 0 0" />
+    <parent
+      link="J_5" />
+    <child
+      link="J_6" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="10"
+      velocity="1" />
+  </joint>
+  <link
+    name="F_1">
+    <inertial>
+      <origin
+        xyz="0.030661 0.039212 -0.00014822"
+        rpy="0 0 0" />
+      <mass
+        value="0.058475" />
+      <inertia
+        ixx="6.6803E-06"
+        ixy="7.3482E-07"
+        ixz="3.7258E-08"
+        iyy="0.00010292"
+        iyz="-2.8903E-10"
+        izz="0.0001014" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_rviz/meshes/F_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.99608 0.99608 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_rviz/meshes/F_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FGR_1"
+    type="prismatic">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="J_6" />
+    <child
+      link="F_1" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.026"
+      upper="0"
+      effort="10"
+      velocity="1" />
+  </joint>
+  <link
+    name="F_2">
+    <inertial>
+      <origin
+        xyz="0.030661 -0.039212 0.0001241"
+        rpy="0 0 0" />
+      <mass
+        value="0.058475" />
+      <inertia
+        ixx="6.6803E-06"
+        ixy="-7.3482E-07"
+        ixz="3.7258E-08"
+        iyy="0.00010292"
+        iyz="2.8903E-10"
+        izz="0.0001014" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_rviz/meshes/F_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.99608 0.99608 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://arm_rviz/meshes/F_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FGR_2"
+    type="prismatic">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="J_6" />
+    <child
+      link="F_2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0.026"
+      effort="10"
+      velocity="1" />
+  </joint>
+</robot>

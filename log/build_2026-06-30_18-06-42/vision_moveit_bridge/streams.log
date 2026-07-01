@@ -1,0 +1,37 @@
+[1.563s] Invoking command in '/home/tony/SKAI_clean_vision/src/vision_moveit_bridge': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/tony/SKAI_clean_vision/build/vision_moveit_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tony/SKAI_clean_vision/install/vision_moveit_bridge/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/vision_moveit_bridge build --build-base /home/tony/SKAI_clean_vision/build/vision_moveit_bridge/build install --record /home/tony/SKAI_clean_vision/build/vision_moveit_bridge/install.log --single-version-externally-managed install_data
+[1.796s] running egg_info
+[1.797s] creating ../../build/vision_moveit_bridge/vision_moveit_bridge.egg-info
+[1.813s] writing ../../build/vision_moveit_bridge/vision_moveit_bridge.egg-info/PKG-INFO
+[1.813s] writing dependency_links to ../../build/vision_moveit_bridge/vision_moveit_bridge.egg-info/dependency_links.txt
+[1.813s] writing entry points to ../../build/vision_moveit_bridge/vision_moveit_bridge.egg-info/entry_points.txt
+[1.813s] writing requirements to ../../build/vision_moveit_bridge/vision_moveit_bridge.egg-info/requires.txt
+[1.814s] writing top-level names to ../../build/vision_moveit_bridge/vision_moveit_bridge.egg-info/top_level.txt
+[1.814s] writing manifest file '../../build/vision_moveit_bridge/vision_moveit_bridge.egg-info/SOURCES.txt'
+[1.847s] reading manifest file '../../build/vision_moveit_bridge/vision_moveit_bridge.egg-info/SOURCES.txt'
+[1.848s] writing manifest file '../../build/vision_moveit_bridge/vision_moveit_bridge.egg-info/SOURCES.txt'
+[1.848s] running build
+[1.848s] running build_py
+[1.848s] creating /home/tony/SKAI_clean_vision/build/vision_moveit_bridge/build
+[1.849s] creating /home/tony/SKAI_clean_vision/build/vision_moveit_bridge/build/lib
+[1.849s] creating /home/tony/SKAI_clean_vision/build/vision_moveit_bridge/build/lib/vision_moveit_bridge
+[1.849s] copying vision_moveit_bridge/__init__.py -> /home/tony/SKAI_clean_vision/build/vision_moveit_bridge/build/lib/vision_moveit_bridge
+[1.849s] copying vision_moveit_bridge/vision_moveit_bridge.py -> /home/tony/SKAI_clean_vision/build/vision_moveit_bridge/build/lib/vision_moveit_bridge
+[1.849s] running install
+[1.853s] running install_lib
+[1.870s] creating /home/tony/SKAI_clean_vision/install/vision_moveit_bridge/lib/python3.12/site-packages/vision_moveit_bridge
+[1.870s] copying /home/tony/SKAI_clean_vision/build/vision_moveit_bridge/build/lib/vision_moveit_bridge/__init__.py -> /home/tony/SKAI_clean_vision/install/vision_moveit_bridge/lib/python3.12/site-packages/vision_moveit_bridge
+[1.870s] copying /home/tony/SKAI_clean_vision/build/vision_moveit_bridge/build/lib/vision_moveit_bridge/vision_moveit_bridge.py -> /home/tony/SKAI_clean_vision/install/vision_moveit_bridge/lib/python3.12/site-packages/vision_moveit_bridge
+[1.871s] byte-compiling /home/tony/SKAI_clean_vision/install/vision_moveit_bridge/lib/python3.12/site-packages/vision_moveit_bridge/__init__.py to __init__.cpython-312.pyc
+[1.871s] byte-compiling /home/tony/SKAI_clean_vision/install/vision_moveit_bridge/lib/python3.12/site-packages/vision_moveit_bridge/vision_moveit_bridge.py to vision_moveit_bridge.cpython-312.pyc
+[1.871s] running install_data
+[1.871s] creating /home/tony/SKAI_clean_vision/install/vision_moveit_bridge/share/ament_index
+[1.872s] creating /home/tony/SKAI_clean_vision/install/vision_moveit_bridge/share/ament_index/resource_index
+[1.872s] creating /home/tony/SKAI_clean_vision/install/vision_moveit_bridge/share/ament_index/resource_index/packages
+[1.872s] copying resource/vision_moveit_bridge -> /home/tony/SKAI_clean_vision/install/vision_moveit_bridge/share/ament_index/resource_index/packages
+[1.872s] copying package.xml -> /home/tony/SKAI_clean_vision/install/vision_moveit_bridge/share/vision_moveit_bridge
+[1.872s] running install_egg_info
+[1.892s] Copying ../../build/vision_moveit_bridge/vision_moveit_bridge.egg-info to /home/tony/SKAI_clean_vision/install/vision_moveit_bridge/lib/python3.12/site-packages/vision_moveit_bridge-0.0.0-py3.12.egg-info
+[1.893s] running install_scripts
+[2.015s] Installing vision_moveit_bridge script to /home/tony/SKAI_clean_vision/install/vision_moveit_bridge/lib/vision_moveit_bridge
+[2.015s] writing list of installed files to '/home/tony/SKAI_clean_vision/build/vision_moveit_bridge/install.log'
+[2.131s] Invoked command in '/home/tony/SKAI_clean_vision/src/vision_moveit_bridge' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/tony/SKAI_clean_vision/build/vision_moveit_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tony/SKAI_clean_vision/install/vision_moveit_bridge/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/vision_moveit_bridge build --build-base /home/tony/SKAI_clean_vision/build/vision_moveit_bridge/build install --record /home/tony/SKAI_clean_vision/build/vision_moveit_bridge/install.log --single-version-externally-managed install_data

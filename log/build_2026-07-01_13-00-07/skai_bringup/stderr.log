@@ -1,0 +1,5 @@
+  File "/home/tony/SKAI_clean_vision/install/skai_bringup/lib/python3.12/site-packages/skai_bringup/add_leaf.py", line 326
+    move to P4
+         ^^
+SyntaxError: invalid syntax
+

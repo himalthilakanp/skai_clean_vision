@@ -1,0 +1,19 @@
+running egg_info
+writing ../../build/vision_gui/vision_gui.egg-info/PKG-INFO
+writing dependency_links to ../../build/vision_gui/vision_gui.egg-info/dependency_links.txt
+writing entry points to ../../build/vision_gui/vision_gui.egg-info/entry_points.txt
+writing requirements to ../../build/vision_gui/vision_gui.egg-info/requires.txt
+writing top-level names to ../../build/vision_gui/vision_gui.egg-info/top_level.txt
+reading manifest file '../../build/vision_gui/vision_gui.egg-info/SOURCES.txt'
+writing manifest file '../../build/vision_gui/vision_gui.egg-info/SOURCES.txt'
+running build
+running build_py
+running install
+running install_lib
+running install_data
+running install_egg_info
+removing '/home/tony/SKAI_clean_vision/install/vision_gui/lib/python3.12/site-packages/vision_gui-0.0.0-py3.12.egg-info' (and everything under it)
+Copying ../../build/vision_gui/vision_gui.egg-info to /home/tony/SKAI_clean_vision/install/vision_gui/lib/python3.12/site-packages/vision_gui-0.0.0-py3.12.egg-info
+running install_scripts
+Installing vision_gui script to /home/tony/SKAI_clean_vision/install/vision_gui/lib/vision_gui
+writing list of installed files to '/home/tony/SKAI_clean_vision/build/vision_gui/install.log'

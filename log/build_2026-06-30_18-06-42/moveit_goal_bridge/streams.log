@@ -1,0 +1,66 @@
+[0.310s] Invoking command in '/home/tony/SKAI_clean_vision/build/moveit_goal_bridge': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tony/SKAI_clean_vision/install/vision_moveit_bridge:/home/tony/SKAI_clean_vision/install/vision_gui:/home/tony/SKAI_clean_vision/install/skai_bringup:/home/tony/SKAI_clean_vision/install/red_detector:/home/tony/SKAI_clean_vision/install/mock_camera:/home/tony/SKAI_clean_vision/install/arm_rviz:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/tony/SKAI_clean_vision/src/moveit_goal_bridge -DCMAKE_INSTALL_PREFIX=/home/tony/SKAI_clean_vision/install/moveit_goal_bridge
+[0.778s] -- The C compiler identification is GNU 13.3.0
+[0.779s] -- The CXX compiler identification is GNU 13.3.0
+[0.779s] -- Detecting C compiler ABI info
+[0.779s] -- Detecting C compiler ABI info - done
+[0.779s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.779s] -- Detecting C compile features
+[0.779s] -- Detecting C compile features - done
+[0.779s] -- Detecting CXX compiler ABI info
+[0.779s] -- Detecting CXX compiler ABI info - done
+[0.779s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.779s] -- Detecting CXX compile features
+[0.779s] -- Detecting CXX compile features - done
+[0.779s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.779s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.779s] -- Found rclcpp: 28.1.18 (/opt/ros/jazzy/share/rclcpp/cmake)
+[0.780s] -- Found rosidl_generator_c: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.780s] -- Found rosidl_generator_cpp: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.780s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.793s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.857s] -- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[0.860s] -- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[0.917s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[0.932s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[0.951s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.033s] -- Found geometry_msgs: 5.3.7 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+[1.063s] -- Found moveit_ros_planning_interface: 2.12.4 (/opt/ros/jazzy/share/moveit_ros_planning_interface/cmake)
+[1.154s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: date_time filesystem program_options system thread 
+[1.362s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread 
+[1.435s] -- Found parameter_traits: 0.7.1 (/opt/ros/jazzy/share/parameter_traits/cmake)
+[1.461s] -- Found rclcpp_lifecycle: 28.1.18 (/opt/ros/jazzy/share/rclcpp_lifecycle/cmake)
+[1.505s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: filesystem 
+[1.575s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[1.575s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[1.729s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: system filesystem date_time program_options thread chrono 
+[1.769s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: thread system filesystem regex date_time program_options 
+[1.791s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: system filesystem date_time program_options thread 
+[1.907s] -- Configuring done (1.6s)
+[1.934s] -- Generating done (0.0s)
+[1.941s] -- Build files have been written to: /home/tony/SKAI_clean_vision/build/moveit_goal_bridge
+[1.952s] Invoked command in '/home/tony/SKAI_clean_vision/build/moveit_goal_bridge' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tony/SKAI_clean_vision/install/vision_moveit_bridge:/home/tony/SKAI_clean_vision/install/vision_gui:/home/tony/SKAI_clean_vision/install/skai_bringup:/home/tony/SKAI_clean_vision/install/red_detector:/home/tony/SKAI_clean_vision/install/mock_camera:/home/tony/SKAI_clean_vision/install/arm_rviz:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/tony/SKAI_clean_vision/src/moveit_goal_bridge -DCMAKE_INSTALL_PREFIX=/home/tony/SKAI_clean_vision/install/moveit_goal_bridge
+[1.953s] Invoking command in '/home/tony/SKAI_clean_vision/build/moveit_goal_bridge': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tony/SKAI_clean_vision/install/vision_moveit_bridge:/home/tony/SKAI_clean_vision/install/vision_gui:/home/tony/SKAI_clean_vision/install/skai_bringup:/home/tony/SKAI_clean_vision/install/red_detector:/home/tony/SKAI_clean_vision/install/mock_camera:/home/tony/SKAI_clean_vision/install/arm_rviz:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tony/SKAI_clean_vision/build/moveit_goal_bridge -- -j16 -l16
+[1.994s] [ 50%] [32mBuilding CXX object CMakeFiles/moveit_goal_bridge.dir/src/moveit_goal_bridge.cpp.o[0m
+[9.502s] [100%] [32m[1mLinking CXX executable moveit_goal_bridge[0m
+[9.836s] [100%] Built target moveit_goal_bridge
+[9.842s] Invoked command in '/home/tony/SKAI_clean_vision/build/moveit_goal_bridge' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tony/SKAI_clean_vision/install/vision_moveit_bridge:/home/tony/SKAI_clean_vision/install/vision_gui:/home/tony/SKAI_clean_vision/install/skai_bringup:/home/tony/SKAI_clean_vision/install/red_detector:/home/tony/SKAI_clean_vision/install/mock_camera:/home/tony/SKAI_clean_vision/install/arm_rviz:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tony/SKAI_clean_vision/build/moveit_goal_bridge -- -j16 -l16
+[9.843s] Invoking command in '/home/tony/SKAI_clean_vision/build/moveit_goal_bridge': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tony/SKAI_clean_vision/install/vision_moveit_bridge:/home/tony/SKAI_clean_vision/install/vision_gui:/home/tony/SKAI_clean_vision/install/skai_bringup:/home/tony/SKAI_clean_vision/install/red_detector:/home/tony/SKAI_clean_vision/install/mock_camera:/home/tony/SKAI_clean_vision/install/arm_rviz:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tony/SKAI_clean_vision/build/moveit_goal_bridge
+[9.848s] -- Install configuration: ""
+[9.848s] -- Installing: /home/tony/SKAI_clean_vision/install/moveit_goal_bridge/lib/moveit_goal_bridge/moveit_goal_bridge
+[9.850s] -- Set non-toolchain portion of runtime path of "/home/tony/SKAI_clean_vision/install/moveit_goal_bridge/lib/moveit_goal_bridge/moveit_goal_bridge" to ""
+[9.850s] -- Installing: /home/tony/SKAI_clean_vision/install/moveit_goal_bridge/share/ament_index/resource_index/package_run_dependencies/moveit_goal_bridge
+[9.850s] -- Installing: /home/tony/SKAI_clean_vision/install/moveit_goal_bridge/share/ament_index/resource_index/parent_prefix_path/moveit_goal_bridge
+[9.850s] -- Installing: /home/tony/SKAI_clean_vision/install/moveit_goal_bridge/share/moveit_goal_bridge/environment/ament_prefix_path.sh
+[9.850s] -- Installing: /home/tony/SKAI_clean_vision/install/moveit_goal_bridge/share/moveit_goal_bridge/environment/ament_prefix_path.dsv
+[9.850s] -- Installing: /home/tony/SKAI_clean_vision/install/moveit_goal_bridge/share/moveit_goal_bridge/environment/path.sh
+[9.850s] -- Installing: /home/tony/SKAI_clean_vision/install/moveit_goal_bridge/share/moveit_goal_bridge/environment/path.dsv
+[9.850s] -- Installing: /home/tony/SKAI_clean_vision/install/moveit_goal_bridge/share/moveit_goal_bridge/local_setup.bash
+[9.850s] -- Installing: /home/tony/SKAI_clean_vision/install/moveit_goal_bridge/share/moveit_goal_bridge/local_setup.sh
+[9.850s] -- Installing: /home/tony/SKAI_clean_vision/install/moveit_goal_bridge/share/moveit_goal_bridge/local_setup.zsh
+[9.851s] -- Installing: /home/tony/SKAI_clean_vision/install/moveit_goal_bridge/share/moveit_goal_bridge/local_setup.dsv
+[9.851s] -- Installing: /home/tony/SKAI_clean_vision/install/moveit_goal_bridge/share/moveit_goal_bridge/package.dsv
+[9.851s] -- Installing: /home/tony/SKAI_clean_vision/install/moveit_goal_bridge/share/ament_index/resource_index/packages/moveit_goal_bridge
+[9.851s] -- Installing: /home/tony/SKAI_clean_vision/install/moveit_goal_bridge/share/moveit_goal_bridge/cmake/moveit_goal_bridgeConfig.cmake
+[9.851s] -- Installing: /home/tony/SKAI_clean_vision/install/moveit_goal_bridge/share/moveit_goal_bridge/cmake/moveit_goal_bridgeConfig-version.cmake
+[9.851s] -- Installing: /home/tony/SKAI_clean_vision/install/moveit_goal_bridge/share/moveit_goal_bridge/package.xml
+[9.852s] Invoked command in '/home/tony/SKAI_clean_vision/build/moveit_goal_bridge' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tony/SKAI_clean_vision/install/vision_moveit_bridge:/home/tony/SKAI_clean_vision/install/vision_gui:/home/tony/SKAI_clean_vision/install/skai_bringup:/home/tony/SKAI_clean_vision/install/red_detector:/home/tony/SKAI_clean_vision/install/mock_camera:/home/tony/SKAI_clean_vision/install/arm_rviz:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tony/SKAI_clean_vision/build/moveit_goal_bridge

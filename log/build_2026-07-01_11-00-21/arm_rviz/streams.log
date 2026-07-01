@@ -1,0 +1,20 @@
+[1.646s] Invoking command in '/home/tony/SKAI_clean_vision/src/arm_rviz': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/tony/SKAI_clean_vision/build/arm_rviz/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tony/SKAI_clean_vision/install/arm_rviz/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/arm_rviz build --build-base /home/tony/SKAI_clean_vision/build/arm_rviz/build install --record /home/tony/SKAI_clean_vision/build/arm_rviz/install.log --single-version-externally-managed install_data
+[1.854s] running egg_info
+[1.869s] writing ../../build/arm_rviz/arm_rviz.egg-info/PKG-INFO
+[1.870s] writing dependency_links to ../../build/arm_rviz/arm_rviz.egg-info/dependency_links.txt
+[1.870s] writing requirements to ../../build/arm_rviz/arm_rviz.egg-info/requires.txt
+[1.871s] writing top-level names to ../../build/arm_rviz/arm_rviz.egg-info/top_level.txt
+[1.903s] reading manifest file '../../build/arm_rviz/arm_rviz.egg-info/SOURCES.txt'
+[1.904s] writing manifest file '../../build/arm_rviz/arm_rviz.egg-info/SOURCES.txt'
+[1.904s] running build
+[1.904s] running build_py
+[1.905s] running install
+[1.910s] running install_lib
+[1.927s] running install_data
+[1.927s] copying urdf/skai_arm:urdf.demo -> /home/tony/SKAI_clean_vision/install/arm_rviz/share/arm_rviz/urdf
+[1.928s] running install_egg_info
+[1.945s] removing '/home/tony/SKAI_clean_vision/install/arm_rviz/lib/python3.12/site-packages/arm_rviz-0.0.1-py3.12.egg-info' (and everything under it)
+[1.945s] Copying ../../build/arm_rviz/arm_rviz.egg-info to /home/tony/SKAI_clean_vision/install/arm_rviz/lib/python3.12/site-packages/arm_rviz-0.0.1-py3.12.egg-info
+[1.946s] running install_scripts
+[2.047s] writing list of installed files to '/home/tony/SKAI_clean_vision/build/arm_rviz/install.log'
+[2.155s] Invoked command in '/home/tony/SKAI_clean_vision/src/arm_rviz' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/tony/SKAI_clean_vision/build/arm_rviz/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tony/SKAI_clean_vision/install/arm_rviz/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/arm_rviz build --build-base /home/tony/SKAI_clean_vision/build/arm_rviz/build install --record /home/tony/SKAI_clean_vision/build/arm_rviz/install.log --single-version-externally-managed install_data

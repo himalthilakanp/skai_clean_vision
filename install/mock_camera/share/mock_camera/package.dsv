@@ -1,0 +1,6 @@
+source;share/mock_camera/hook/pythonpath.ps1
+source;share/mock_camera/hook/pythonpath.dsv
+source;share/mock_camera/hook/pythonpath.sh
+source;share/mock_camera/hook/ament_prefix_path.ps1
+source;share/mock_camera/hook/ament_prefix_path.dsv
+source;share/mock_camera/hook/ament_prefix_path.sh

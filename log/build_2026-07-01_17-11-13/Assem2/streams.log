@@ -1,0 +1,40 @@
+[0.178s] Invoking command in '/home/tony/SKAI_clean_vision/build/Assem2': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/tony/SKAI_clean_vision/src/Assem2 -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/tony/SKAI_clean_vision/install/Assem2
+[0.808s] -- The C compiler identification is GNU 13.3.0
+[0.808s] -- The CXX compiler identification is GNU 13.3.0
+[0.808s] -- Detecting C compiler ABI info
+[0.809s] -- Detecting C compiler ABI info - done
+[0.809s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.809s] -- Detecting C compile features
+[0.809s] -- Detecting C compile features - done
+[0.809s] -- Detecting CXX compiler ABI info
+[0.809s] -- Detecting CXX compiler ABI info - done
+[0.809s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.809s] -- Detecting CXX compile features
+[0.809s] -- Detecting CXX compile features - done
+[0.809s] -- Configuring incomplete, errors occurred!
+[0.809s] [0mCMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+[0.810s]   Compatibility with CMake < 3.5 will be removed from a future version of
+[0.810s]   CMake.
+[0.810s] 
+[0.810s]   Update the VERSION argument <min> value or use a ...<max> suffix to tell
+[0.810s]   CMake that the project does not need compatibility with older versions.
+[0.810s] 
+[0.810s] [0m
+[0.810s] [31mCMake Error at CMakeLists.txt:5 (find_package):
+[0.810s]   By not providing "Findcatkin.cmake" in CMAKE_MODULE_PATH this project has
+[0.810s]   asked CMake to find a package configuration file provided by "catkin", but
+[0.810s]   CMake did not find one.
+[0.810s] 
+[0.810s]   Could not find a package configuration file provided by "catkin" with any
+[0.810s]   of the following names:
+[0.811s] 
+[0.811s]     catkinConfig.cmake
+[0.811s]     catkin-config.cmake
+[0.811s] 
+[0.811s]   Add the installation prefix of "catkin" to CMAKE_PREFIX_PATH or set
+[0.811s]   "catkin_DIR" to a directory containing one of the above files.  If "catkin"
+[0.811s]   provides a separate development package or SDK, be sure it has been
+[0.811s]   installed.
+[0.811s] 
+[0.811s] [0m
+[0.956s] Invoked command in '/home/tony/SKAI_clean_vision/build/Assem2' returned '1': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/tony/SKAI_clean_vision/src/Assem2 -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/tony/SKAI_clean_vision/install/Assem2

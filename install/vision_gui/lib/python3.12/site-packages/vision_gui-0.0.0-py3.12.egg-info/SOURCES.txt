@@ -1,0 +1,16 @@
+package.xml
+setup.cfg
+setup.py
+../../build/vision_gui/vision_gui.egg-info/PKG-INFO
+../../build/vision_gui/vision_gui.egg-info/SOURCES.txt
+../../build/vision_gui/vision_gui.egg-info/dependency_links.txt
+../../build/vision_gui/vision_gui.egg-info/entry_points.txt
+../../build/vision_gui/vision_gui.egg-info/requires.txt
+../../build/vision_gui/vision_gui.egg-info/top_level.txt
+../../build/vision_gui/vision_gui.egg-info/zip-safe
+resource/vision_gui
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py
+vision_gui/__init__.py
+vision_gui/vision_gui.py

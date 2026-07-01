@@ -1,0 +1,29 @@
+moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
+
+moveit_simple_controller_manager:
+
+  controller_names:
+    - arm_group_controller
+    - GRIP_controller
+
+  arm_group_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
+
+    joints:
+      - ROT_1
+      - PITCH_1
+      - PITCH_2
+      - PITCH_3
+      - ROT_2
+      - ROT_3
+
+  GRIP_controller:
+    type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
+
+    joints:
+      - FGR_1
+      - FGR_2

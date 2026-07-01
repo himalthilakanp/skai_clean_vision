@@ -1,0 +1,38 @@
+running egg_info
+creating ../../build/skai_bringup/skai_bringup.egg-info
+writing ../../build/skai_bringup/skai_bringup.egg-info/PKG-INFO
+writing dependency_links to ../../build/skai_bringup/skai_bringup.egg-info/dependency_links.txt
+writing entry points to ../../build/skai_bringup/skai_bringup.egg-info/entry_points.txt
+writing requirements to ../../build/skai_bringup/skai_bringup.egg-info/requires.txt
+writing top-level names to ../../build/skai_bringup/skai_bringup.egg-info/top_level.txt
+writing manifest file '../../build/skai_bringup/skai_bringup.egg-info/SOURCES.txt'
+reading manifest file '../../build/skai_bringup/skai_bringup.egg-info/SOURCES.txt'
+writing manifest file '../../build/skai_bringup/skai_bringup.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/tony/SKAI_clean_vision/build/skai_bringup/build
+creating /home/tony/SKAI_clean_vision/build/skai_bringup/build/lib
+creating /home/tony/SKAI_clean_vision/build/skai_bringup/build/lib/skai_bringup
+copying skai_bringup/add_leaf.py -> /home/tony/SKAI_clean_vision/build/skai_bringup/build/lib/skai_bringup
+copying skai_bringup/__init__.py -> /home/tony/SKAI_clean_vision/build/skai_bringup/build/lib/skai_bringup
+running install
+running install_lib
+creating /home/tony/SKAI_clean_vision/install/skai_bringup/lib/python3.12/site-packages/skai_bringup
+copying /home/tony/SKAI_clean_vision/build/skai_bringup/build/lib/skai_bringup/add_leaf.py -> /home/tony/SKAI_clean_vision/install/skai_bringup/lib/python3.12/site-packages/skai_bringup
+copying /home/tony/SKAI_clean_vision/build/skai_bringup/build/lib/skai_bringup/__init__.py -> /home/tony/SKAI_clean_vision/install/skai_bringup/lib/python3.12/site-packages/skai_bringup
+byte-compiling /home/tony/SKAI_clean_vision/install/skai_bringup/lib/python3.12/site-packages/skai_bringup/add_leaf.py to add_leaf.cpython-312.pyc
+byte-compiling /home/tony/SKAI_clean_vision/install/skai_bringup/lib/python3.12/site-packages/skai_bringup/__init__.py to __init__.cpython-312.pyc
+running install_data
+creating /home/tony/SKAI_clean_vision/install/skai_bringup/share/ament_index
+creating /home/tony/SKAI_clean_vision/install/skai_bringup/share/ament_index/resource_index
+creating /home/tony/SKAI_clean_vision/install/skai_bringup/share/ament_index/resource_index/packages
+copying resource/skai_bringup -> /home/tony/SKAI_clean_vision/install/skai_bringup/share/ament_index/resource_index/packages
+copying package.xml -> /home/tony/SKAI_clean_vision/install/skai_bringup/share/skai_bringup
+creating /home/tony/SKAI_clean_vision/install/skai_bringup/share/skai_bringup/launch
+copying launch/vision_system.launch.py -> /home/tony/SKAI_clean_vision/install/skai_bringup/share/skai_bringup/launch
+copying launch/demo_with_leaf.launch.py -> /home/tony/SKAI_clean_vision/install/skai_bringup/share/skai_bringup/launch
+running install_egg_info
+Copying ../../build/skai_bringup/skai_bringup.egg-info to /home/tony/SKAI_clean_vision/install/skai_bringup/lib/python3.12/site-packages/skai_bringup-0.0.0-py3.12.egg-info
+running install_scripts
+Installing add_leaf script to /home/tony/SKAI_clean_vision/install/skai_bringup/lib/skai_bringup
+writing list of installed files to '/home/tony/SKAI_clean_vision/build/skai_bringup/install.log'

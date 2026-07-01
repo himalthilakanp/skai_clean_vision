@@ -1,0 +1,2 @@
+[console_scripts]
+vision_gui = vision_gui.vision_gui:main

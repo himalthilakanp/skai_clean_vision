@@ -1,0 +1,28 @@
+[0.601s] Invoking command in '/home/tony/SKAI_clean_vision/build/skai_hardware_v2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tony/SKAI_clean_vision/install/vision_moveit_bridge:/home/tony/SKAI_clean_vision/install/vision_gui:/home/tony/SKAI_clean_vision/install/skai_bringup:/home/tony/SKAI_clean_vision/install/red_detector:/home/tony/SKAI_clean_vision/install/mock_camera:/home/tony/SKAI_clean_vision/install/arm_rviz:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tony/SKAI_clean_vision/build/skai_hardware_v2 -- -j16 -l16
+[0.752s] [100%] Built target skai_hardware_v2
+[0.914s] Invoked command in '/home/tony/SKAI_clean_vision/build/skai_hardware_v2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tony/SKAI_clean_vision/install/vision_moveit_bridge:/home/tony/SKAI_clean_vision/install/vision_gui:/home/tony/SKAI_clean_vision/install/skai_bringup:/home/tony/SKAI_clean_vision/install/red_detector:/home/tony/SKAI_clean_vision/install/mock_camera:/home/tony/SKAI_clean_vision/install/arm_rviz:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tony/SKAI_clean_vision/build/skai_hardware_v2 -- -j16 -l16
+[0.915s] Invoking command in '/home/tony/SKAI_clean_vision/build/skai_hardware_v2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tony/SKAI_clean_vision/install/vision_moveit_bridge:/home/tony/SKAI_clean_vision/install/vision_gui:/home/tony/SKAI_clean_vision/install/skai_bringup:/home/tony/SKAI_clean_vision/install/red_detector:/home/tony/SKAI_clean_vision/install/mock_camera:/home/tony/SKAI_clean_vision/install/arm_rviz:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tony/SKAI_clean_vision/build/skai_hardware_v2
+[0.920s] -- Install configuration: ""
+[0.921s] -- Up-to-date: /home/tony/SKAI_clean_vision/install/skai_hardware_v2/share/skai_hardware_v2/skai_hardware.xml
+[0.921s] -- Up-to-date: /home/tony/SKAI_clean_vision/install/skai_hardware_v2/include
+[0.921s] -- Up-to-date: /home/tony/SKAI_clean_vision/install/skai_hardware_v2/include/skai_hardware_v2
+[0.921s] -- Up-to-date: /home/tony/SKAI_clean_vision/install/skai_hardware_v2/include/skai_hardware_v2/skai_hardware.hpp
+[0.921s] -- Up-to-date: /home/tony/SKAI_clean_vision/install/skai_hardware_v2/lib/libskai_hardware_v2.so
+[0.921s] -- Up-to-date: /home/tony/SKAI_clean_vision/install/skai_hardware_v2/share/skai_hardware_v2/skai_hardware.xml
+[0.921s] -- Up-to-date: /home/tony/SKAI_clean_vision/install/skai_hardware_v2/share/ament_index/resource_index/package_run_dependencies/skai_hardware_v2
+[0.921s] -- Up-to-date: /home/tony/SKAI_clean_vision/install/skai_hardware_v2/share/ament_index/resource_index/parent_prefix_path/skai_hardware_v2
+[0.921s] -- Up-to-date: /home/tony/SKAI_clean_vision/install/skai_hardware_v2/share/skai_hardware_v2/environment/ament_prefix_path.sh
+[0.921s] -- Up-to-date: /home/tony/SKAI_clean_vision/install/skai_hardware_v2/share/skai_hardware_v2/environment/ament_prefix_path.dsv
+[0.921s] -- Up-to-date: /home/tony/SKAI_clean_vision/install/skai_hardware_v2/share/skai_hardware_v2/environment/path.sh
+[0.921s] -- Up-to-date: /home/tony/SKAI_clean_vision/install/skai_hardware_v2/share/skai_hardware_v2/environment/path.dsv
+[0.921s] -- Up-to-date: /home/tony/SKAI_clean_vision/install/skai_hardware_v2/share/skai_hardware_v2/local_setup.bash
+[0.921s] -- Up-to-date: /home/tony/SKAI_clean_vision/install/skai_hardware_v2/share/skai_hardware_v2/local_setup.sh
+[0.921s] -- Up-to-date: /home/tony/SKAI_clean_vision/install/skai_hardware_v2/share/skai_hardware_v2/local_setup.zsh
+[0.921s] -- Up-to-date: /home/tony/SKAI_clean_vision/install/skai_hardware_v2/share/skai_hardware_v2/local_setup.dsv
+[0.921s] -- Installing: /home/tony/SKAI_clean_vision/install/skai_hardware_v2/share/skai_hardware_v2/package.dsv
+[0.921s] -- Up-to-date: /home/tony/SKAI_clean_vision/install/skai_hardware_v2/share/ament_index/resource_index/packages/skai_hardware_v2
+[0.921s] -- Up-to-date: /home/tony/SKAI_clean_vision/install/skai_hardware_v2/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/skai_hardware_v2
+[0.922s] -- Up-to-date: /home/tony/SKAI_clean_vision/install/skai_hardware_v2/share/skai_hardware_v2/cmake/skai_hardware_v2Config.cmake
+[0.922s] -- Up-to-date: /home/tony/SKAI_clean_vision/install/skai_hardware_v2/share/skai_hardware_v2/cmake/skai_hardware_v2Config-version.cmake
+[0.922s] -- Up-to-date: /home/tony/SKAI_clean_vision/install/skai_hardware_v2/share/skai_hardware_v2/package.xml
+[0.924s] Invoked command in '/home/tony/SKAI_clean_vision/build/skai_hardware_v2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tony/SKAI_clean_vision/install/vision_moveit_bridge:/home/tony/SKAI_clean_vision/install/vision_gui:/home/tony/SKAI_clean_vision/install/skai_bringup:/home/tony/SKAI_clean_vision/install/red_detector:/home/tony/SKAI_clean_vision/install/mock_camera:/home/tony/SKAI_clean_vision/install/arm_rviz:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tony/SKAI_clean_vision/build/skai_hardware_v2
