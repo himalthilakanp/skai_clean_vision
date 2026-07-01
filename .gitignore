@@ -1,0 +1,27 @@
+# ROS2 colcon
+build/
+install/
+log/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# VS Code
+.vscode/
+
+# Temporary files
+*.swp
+*.swo
+*~
+
+# Archives
+*.zip
+
+# Generated documents
+*.pdf
+*.gv
+
+# ROS logs
+*.log
