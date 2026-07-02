@@ -1,9 +1,0 @@
-/home/tony/SKAI_clean_vision/build/skai_moveit_config/CMakeFiles/uninstall.dir
-/home/tony/SKAI_clean_vision/build/skai_moveit_config/CMakeFiles/skai_moveit_config_uninstall.dir
-/home/tony/SKAI_clean_vision/build/skai_moveit_config/CMakeFiles/test.dir
-/home/tony/SKAI_clean_vision/build/skai_moveit_config/CMakeFiles/edit_cache.dir
-/home/tony/SKAI_clean_vision/build/skai_moveit_config/CMakeFiles/rebuild_cache.dir
-/home/tony/SKAI_clean_vision/build/skai_moveit_config/CMakeFiles/list_install_components.dir
-/home/tony/SKAI_clean_vision/build/skai_moveit_config/CMakeFiles/install.dir
-/home/tony/SKAI_clean_vision/build/skai_moveit_config/CMakeFiles/install/local.dir
-/home/tony/SKAI_clean_vision/build/skai_moveit_config/CMakeFiles/install/strip.dir

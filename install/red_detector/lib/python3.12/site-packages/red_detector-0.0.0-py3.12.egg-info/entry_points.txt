@@ -1,2 +1,0 @@
-[console_scripts]
-red_detector_node = red_detector.red_detector_node:main

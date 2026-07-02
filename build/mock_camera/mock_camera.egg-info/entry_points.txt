@@ -1,2 +1,0 @@
-[console_scripts]
-mock_camera = mock_camera.mock_camera:main
