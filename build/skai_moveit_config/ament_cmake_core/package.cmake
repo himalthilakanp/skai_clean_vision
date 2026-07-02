@@ -1,6 +1,6 @@
 set(_AMENT_PACKAGE_NAME "skai_moveit_config")
 set(skai_moveit_config_VERSION "0.3.0")
-set(skai_moveit_config_MAINTAINER "BigPapaya <BigPapaya@IDK.com>")
+set(skai_moveit_config_MAINTAINER "todo <todo@todo.com>")
 set(skai_moveit_config_BUILD_DEPENDS )
 set(skai_moveit_config_BUILDTOOL_DEPENDS "ament_cmake")
 set(skai_moveit_config_BUILD_EXPORT_DEPENDS )

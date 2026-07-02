@@ -3,7 +3,7 @@
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
-  name="Assem2">
+  name="skai_arm">
   <link
     name="BASE">
     <inertial>
@@ -508,4 +508,26 @@
       effort="10"
       velocity="1" />
   </joint>
+  <!-- <link name="link_tcp">
+  <visual>
+    <geometry>
+      <sphere radius="0.008"/>
+    </geometry>
+    <material name="green">
+      <color rgba="0 1 0 1"/>
+    </material>
+  </visual>
+
+  <collision>
+    <geometry>
+      <sphere radius="0.005"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="tcp_joint" type="fixed">
+  <parent link="J_6"/>
+  <child link="link_tcp"/>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+</joint> -->
 </robot>

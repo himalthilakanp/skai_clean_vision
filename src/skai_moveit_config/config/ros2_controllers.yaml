@@ -23,20 +23,22 @@ arm_group_controller:
       - PITCH_3
       - ROT_2
       - ROT_3
+    action_ns: follow_joint_trajectory
+    default: true
     command_interfaces:
       - position
     state_interfaces:
       - position
-      # - velocity
     allow_nonzero_velocity_at_trajectory_end: true
 GRIP_controller:
   ros__parameters:
     joints:
       - FGR_1
       - FGR_2
+    action_ns: follow_joint_trajectory
+    default: true
     command_interfaces:
       - position
     state_interfaces:
       - position
-      # - velocity
     allow_nonzero_velocity_at_trajectory_end: true

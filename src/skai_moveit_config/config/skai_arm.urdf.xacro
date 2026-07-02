@@ -9,6 +9,6 @@
     <xacro:include filename="skai_arm.ros2_control.xacro" />
 
 
-    <xacro:skai_arm_ros2_control name="SKAIHardware" initial_positions_file="$(arg initial_positions_file)"/>
+    <xacro:skai_arm_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
 
 </robot>

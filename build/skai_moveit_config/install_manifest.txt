@@ -21,6 +21,7 @@
 /home/tony/SKAI_clean_vision/install/skai_moveit_config/share/skai_moveit_config/launch/warehouse_db.launch.py
 /home/tony/SKAI_clean_vision/install/skai_moveit_config/share/skai_moveit_config/launch/static_virtual_joint_tfs.launch.py
 /home/tony/SKAI_clean_vision/install/skai_moveit_config/share/skai_moveit_config/launch/spawn_controllers.launch.py
+/home/tony/SKAI_clean_vision/install/skai_moveit_config/share/skai_moveit_config/config/sensors_3d.yaml
 /home/tony/SKAI_clean_vision/install/skai_moveit_config/share/skai_moveit_config/config/moveit_controllers.yaml
 /home/tony/SKAI_clean_vision/install/skai_moveit_config/share/skai_moveit_config/config/skai_arm.srdf
 /home/tony/SKAI_clean_vision/install/skai_moveit_config/share/skai_moveit_config/config/moveit.rviz

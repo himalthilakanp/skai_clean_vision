@@ -4,29 +4,40 @@
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
   name="skai_arm">
-  <material name="green">
-    <color rgba="0 1 0 1"/>
-  </material>
+  <material name="gray">
+  <color rgba="0.7451 0.73725 0.72941 1"/>
+</material>
 
-  <material name="yellow">
-    <color rgba="1 1 0 1"/>
-  </material>
+<material name="blue">
+  <color rgba="0.79216 0.81961 0.93333 1"/>
+</material>
 
+<material name="green">
+  <color rgba="0 1 0 1"/>
+</material>
+
+<material name="yellow">
+  <color rgba="1 1 0 1"/>
+</material>
+
+<material name="red">
+  <color rgba="1 0 0 1"/>
+</material>
   <link
     name="BASE">
     <inertial>
       <origin
-        xyz="0.0079534 0.071969 -0.010726"
+        xyz="0.0079534 0.010726 0.071969"
         rpy="0 0 0" />
       <mass
         value="3.1262" />
       <inertia
         ixx="0.044505"
-        ixy="-0.00099255"
-        ixz="-2.2803E-05"
-        iyy="0.041054"
-        iyz="-0.010312"
-        izz="0.030652" />
+        ixy="2.2803E-05"
+        ixz="-0.00099255"
+        iyy="0.030652"
+        iyz="0.010312"
+        izz="0.041054" />
     </inertial>
     <visual>
       <origin
@@ -105,8 +116,8 @@
     <axis
       xyz="0 -1 0" />
     <limit
-      lower="-2.0944"
-      upper="2.0944"
+      lower="-1.57"
+      upper="1.57"
       effort="10"
       velocity="1" />
   </joint>
@@ -164,7 +175,7 @@
       xyz="1 0 0" />
     <limit
       lower="-3.14"
-      upper="0.1"
+      upper="0.05"
       effort="10"
       velocity="1" />
   </joint>
@@ -279,8 +290,8 @@
     <axis
       xyz="1 0 0" />
     <limit
-      lower="-6.28"
-      upper="6.28"
+      lower="-1.57"
+      upper="1.57"
       effort="10"
       velocity="1" />
   </joint>
@@ -346,7 +357,7 @@
     name="J_6">
     <inertial>
       <origin
-        xyz="-0.053925 0.00018089 0.00074518"
+        xyz="0.15572 0.00018089 0.0036627"
         rpy="0 0 0" />
       <mass
         value="0.19696" />
@@ -386,7 +397,7 @@
     name="ROT_3"
     type="revolute">
     <origin
-      xyz="-0.084 -0.072 3.3041E-05"
+      xyz="-0.29365 -0.072 -0.0028845"
       rpy="0 0 0" />
     <parent
       link="J_5" />
@@ -395,8 +406,8 @@
     <axis
       xyz="1 0 0" />
     <limit
-      lower="-6.28"
-      upper="6.28"
+      lower="-1.57"
+      upper="1.57"
       effort="10"
       velocity="1" />
   </joint>
@@ -404,7 +415,7 @@
     name="F_1">
     <inertial>
       <origin
-        xyz="-0.17898 0.039212 -0.0030658"
+        xyz="0.030661 0.039212 -0.00014822"
         rpy="0 0 0" />
       <mass
         value="0.058475" />
@@ -451,10 +462,10 @@
     <child
       link="F_1" />
     <axis
-      xyz="0 -1 0" />
+      xyz="0 1 0" />
     <limit
-      lower="0"
-      upper="0.026"
+      lower="-0.026"
+      upper="0"
       effort="10"
       velocity="1" />
   </joint>
@@ -462,7 +473,7 @@
     name="F_2">
     <inertial>
       <origin
-        xyz="-0.17898 -0.039212 -0.0027934"
+        xyz="0.030661 -0.039212 0.0001241"
         rpy="0 0 0" />
       <mass
         value="0.058475" />
@@ -509,10 +520,10 @@
     <child
       link="F_2" />
     <axis
-      xyz="0 -1 0" />
+      xyz="0 1 0" />
     <limit
-      lower="-0.026"
-      upper="0"
+      lower="0"
+      upper="0.026"
       effort="10"
       velocity="1" />
   </joint>

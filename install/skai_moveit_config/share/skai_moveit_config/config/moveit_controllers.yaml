@@ -1,16 +1,14 @@
+# MoveIt uses this configuration for controller management
+
 moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
 
 moveit_simple_controller_manager:
-
   controller_names:
     - arm_group_controller
     - GRIP_controller
 
   arm_group_controller:
     type: FollowJointTrajectory
-    action_ns: follow_joint_trajectory
-    default: true
-
     joints:
       - ROT_1
       - PITCH_1
@@ -18,12 +16,12 @@ moveit_simple_controller_manager:
       - PITCH_3
       - ROT_2
       - ROT_3
-
-  GRIP_controller:
-    type: FollowJointTrajectory
     action_ns: follow_joint_trajectory
     default: true
-
+  GRIP_controller:
+    type: FollowJointTrajectory
     joints:
       - FGR_1
       - FGR_2
+    action_ns: follow_joint_trajectory
+    default: true
