@@ -1,460 +1,1468 @@
 #!/usr/bin/env python3
 
+
 import rclpy
 import time
+import math
+from tf2_ros import Buffer, TransformListener
+
 
 from rclpy.node import Node
 from rclpy.action import ActionClient
-from control_msgs.action import FollowJointTrajectory
-from trajectory_msgs.msg import JointTrajectoryPoint
+from visualization_msgs.msg import Marker
+from visualization_msgs.msg import MarkerArray
+from moveit_msgs.srv import GetPositionIK
+from geometry_msgs.msg import PoseStamped
+from moveit_msgs.msg import Constraints
+from moveit_msgs.msg import JointConstraint
+
+
+
 
 from moveit_msgs.action import MoveGroup
-
 from moveit_msgs.msg import (
-    Constraints,
-    JointConstraint,
-    PlanningScene,
-    CollisionObject
+   Constraints,
+   JointConstraint,
+   CollisionObject,
+   PlanningScene,
+   ObjectColor,
+   AttachedCollisionObject
 )
+
 
 from shape_msgs.msg import SolidPrimitive
-from geometry_msgs.msg import Pose
+from geometry_msgs.msg import PoseStamped, Quaternion
+from std_msgs.msg import ColorRGBA
 
 
-class IndustrialMotion(Node):
+from control_msgs.action import FollowJointTrajectory
+from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
+from rclpy.qos import QoSProfile
+from rclpy.qos import DurabilityPolicy
 
-    def __init__(self):
 
-        super().__init__("industrial_motion")
 
-        # -------------------------------------------------
-        # MOVEIT ACTION CLIENT
-        # -------------------------------------------------
-        self.client = ActionClient(
-            self,
-            MoveGroup,
-            "move_action"
-        )
 
-        self.get_logger().info(
-            "Waiting for MoveIt..."
-        )
+class MoveWithMoveIt(Node):
 
-        self.client.wait_for_server()
 
-        self.get_logger().info(
-            "MoveIt ready ✔"
-        )
+   def __init__(self):
+       super().__init__("move_with_moveit")
 
-        # -------------------------------------------------
-        # GRIPPER ACTION CLIENT
-        # -------------------------------------------------
-        self.gripper_client = ActionClient(
-            self,
-            FollowJointTrajectory,
-            "/GRIP_controller/follow_joint_trajectory"
-        )
 
-        self.get_logger().info(
-            "Waiting for gripper..."
-        )
+       # MoveIt client
+       self.client = ActionClient(self, MoveGroup, 'move_action')
 
-        self.gripper_client.wait_for_server()
 
-        self.get_logger().info(
-            "Gripper ready ✔"
-)
+       self.get_logger().info("Waiting for MoveIt...")
+       self.client.wait_for_server()
+       self.get_logger().info("MoveIt ready ✔")
 
-        # -------------------------------------------------
-        # PLANNING SCENE PUBLISHER
-        # -------------------------------------------------
-        self.scene_pub = self.create_publisher(
-            PlanningScene,
-            "/planning_scene",
-            10
-        )
 
-        # add obstacle once
-        self.add_small_cylinder()
+       # Gripper action client
+       self.gripper_client = ActionClient(
+           self,
+           FollowJointTrajectory,
+           "/GRIP_controller/follow_joint_trajectory"
+       )
 
-    # -------------------------------------------------
-    # ADD SMALL CYLINDER
-    # -------------------------------------------------
-    def add_small_cylinder(self):
 
-        scene = PlanningScene()
+       self.get_logger().info("Waiting for gripper controller...")
+       self.gripper_client.wait_for_server()
+       self.get_logger().info("Gripper ready ✔")
 
-        scene.is_diff = True
 
-        # -------------------------------------------------
-        # COLLISION OBJECT
-        # -------------------------------------------------
-        obj = CollisionObject()
+       # Planning scene publisher
+       self.scene_pub = self.create_publisher(
+           PlanningScene,
+           '/planning_scene',
+           10
+       )
+       qos = QoSProfile(depth=10)
+       qos.durability = DurabilityPolicy.TRANSIENT_LOCAL
 
-        obj.id = "small_cylinder"
 
-        obj.header.frame_id = "BASE"
+       self.marker_pub = self.create_publisher(
+           MarkerArray,
+           "/visualization_marker_array",
+           qos
+       )
 
-        # -------------------------------------------------
-        # CYLINDER SHAPE
-        # -------------------------------------------------
-        cylinder = SolidPrimitive()
 
-        cylinder.type = SolidPrimitive.CYLINDER
+       self.ik_client = self.create_client(
+           GetPositionIK,
+           "/compute_ik"
+       )
 
-        # [height, radius]
-        cylinder.dimensions = [1.6, 0.015]
 
-        # -------------------------------------------------
-        # POSITION
-        # -------------------------------------------------
-        pose = Pose()
+       # TF for reading TCP pose
+       self.tf_buffer = Buffer()
+       self.tf_listener = TransformListener(
+           self.tf_buffer,
+           self
+       )
 
-        pose.position.x = -0.45
-        pose.position.y = -0.30
 
-        # center of cylinder
-        pose.position.z = 0.8
+       self.get_logger().info("Waiting for IK service...")
+       self.ik_client.wait_for_service()
+       self.get_logger().info("IK service ready ✔")
 
-        pose.orientation.w = 1.0
 
-        # -------------------------------------------------
-        # ADD OBJECT
-        # -------------------------------------------------
-        obj.primitives.append(cylinder)
+       self.add_cylinder()
+       self.add_leaves()
 
-        obj.primitive_poses.append(pose)
 
-        obj.operation = CollisionObject.ADD
+   # -------------------------------------------------
+   # OBSTACLE
+   # -------------------------------------------------
+   def add_cylinder(self):
 
-        scene.world.collision_objects.append(obj)
 
-        # -------------------------------------------------
-        # PUBLISH
-        # -------------------------------------------------
-        self.scene_pub.publish(scene)
+       scene = PlanningScene()
+       scene.is_diff = True
 
-        self.get_logger().info(
-            "Small cylinder added ✔"
-        )
 
-        time.sleep(2)
+       collision = CollisionObject()
+       collision.id = "obstacle"
+       collision.header.frame_id = "BASE"
 
-    # -------------------------------------------------
-    # MOVE TO JOINT POSITION
-    # -------------------------------------------------
-    def move_to_position(self, joints, motion_name="PTP_MOVE"):
 
-        goal = MoveGroup.Goal()
+       primitive = SolidPrimitive()
+       primitive.type = SolidPrimitive.CYLINDER
+       primitive.dimensions = [1.6, 0.015]
 
-        # -------------------------------------------------
-        # MOVE GROUP
-        # -------------------------------------------------
-        goal.request.group_name = "arm_group"
 
-        # -------------------------------------------------
-        # PILZ INDUSTRIAL PLANNER
-        # -------------------------------------------------
-        goal.request.pipeline_id = (
-            "pilz_industrial_motion_planner"
-        )
+       pose = PoseStamped()
+       pose.header.frame_id = "BASE"
+       pose.pose.position.x = -0.45
+       pose.pose.position.y = -0.30
+       pose.pose.position.z = 0.8
+       pose.pose.orientation.w = 1.0
 
-        goal.request.planner_id = "PTP"
 
-        # -------------------------------------------------
-        # SPEED
-        # -------------------------------------------------
-        goal.request.max_velocity_scaling_factor = 0.25
-
-        goal.request.max_acceleration_scaling_factor = 0.25
-
-        # -------------------------------------------------
-        # JOINT NAMES
-        # -------------------------------------------------
-        joint_names = [
-            
-            "ROT_1",
-            "PITCH_1",
-            "PITCH_2",
-            "PITCH_3",
-            "ROT_2",
-            "ROT_3"
-        ]
-
-        # -------------------------------------------------
-        # CONSTRAINTS
-        # -------------------------------------------------
-        constraints = Constraints()
+       collision.primitives.append(primitive)
+       collision.primitive_poses.append(pose.pose)
+       collision.operation = CollisionObject.ADD
 
-        for i in range(6):
 
-            jc = JointConstraint()
+       scene.world.collision_objects.append(collision)
 
-            jc.joint_name = joint_names[i]
 
-            jc.position = float(joints[i])
+       self.scene_pub.publish(scene)
 
-            jc.tolerance_above = 0.001
-            jc.tolerance_below = 0.001
 
-            jc.weight = 1.0
+       self.get_logger().info("Cylinder added ✔")
+       time.sleep(2)
 
-            constraints.joint_constraints.append(jc)
 
-        goal.request.goal_constraints.append(
-            constraints
-        )
+   # -------------------------------------------------
+   # LEAVES (VISUAL ONLY)
+   # -------------------------------------------------
+   def add_leaves(self):
 
-        # -------------------------------------------------
-        # SEND GOAL
-        # -------------------------------------------------
-        self.get_logger().info(
-            f"Executing {motion_name}..."
-        )
 
-        send_future = self.client.send_goal_async(
-            goal
-        )
+       marker_array = MarkerArray()
 
-        rclpy.spin_until_future_complete(
-            self,
-            send_future
-        )
 
-        goal_handle = send_future.result()
+       GOLDEN_ANGLE = math.radians(137.5)
 
-        # -------------------------------------------------
-        # CHECK ACCEPTED
-        # -------------------------------------------------
-        if not goal_handle.accepted:
 
-            self.get_logger().error(
-                f"{motion_name} rejected ❌"
-            )
+       NUM_LEAVES = 24
+       TOTAL_HEIGHT = 1.35
+       LEAF_RADIUS = 0.10
 
-            return
 
-        # -------------------------------------------------
-        # WAIT RESULT
-        # -------------------------------------------------
-        result_future = goal_handle.get_result_async()
+       START_ANGLE = math.pi
 
-        rclpy.spin_until_future_complete(
-            self,
-            result_future
-        )
 
-        result = result_future.result()
+       for i in range(NUM_LEAVES):
 
-        if result.result.error_code.val == 1:
-            self.get_logger().info(
-                f"{motion_name} completed ✔"
-            )
-        else:
-            self.get_logger().error(
-                f"{motion_name} failed. Error code: "
-                f"{result.result.error_code.val}"
-            )
 
-        time.sleep(1)
+           marker = Marker()
 
-    # -------------------------------------------------
-    # GRIPPER MOTION
-    # -------------------------------------------------
-    def move_gripper(
-        self,
-        fgr1,
-        fgr2,
-        motion_name="GRIP_MOVE"
-    ):
-
-        goal = FollowJointTrajectory.Goal()
-
-        goal.trajectory.joint_names = [
-            "FGR_1",
-            "FGR_2"
-        ]
 
-        point = JointTrajectoryPoint()
+           marker.header.frame_id = "BASE"
+           marker.header.stamp = self.get_clock().now().to_msg()
 
-        point.positions = [
-            float(fgr1),
-            float(fgr2)
-        ]
 
-        point.time_from_start.sec = 2
-
-        goal.trajectory.points.append(point)
+           marker.ns = "leaves"
+           marker.id = i
 
-        self.get_logger().info(
-            f"Executing {motion_name}..."
-        )
-
-        send_future = (
-            self.gripper_client.send_goal_async(goal)
-        )
 
-        rclpy.spin_until_future_complete(
-            self,
-            send_future
-        )
+           marker.type = Marker.CUBE
+           marker.action = Marker.ADD
 
-        goal_handle = send_future.result()
 
-        if not goal_handle.accepted:
+           marker.lifetime.sec = 0
 
-            self.get_logger().error(
-                f"{motion_name} rejected ❌"
-            )
 
-            return
+           theta = START_ANGLE + i * GOLDEN_ANGLE
 
-        result_future = (
-            goal_handle.get_result_async()
-        )
-
-        rclpy.spin_until_future_complete(
-            self,
-            result_future
-        )
-
-        self.get_logger().info(
-            f"{motion_name} completed ✔"
-        )
-
-        time.sleep(1)
-
-
-    def open_gripper(self):
-
-        self.move_gripper(
-            -0.026,
-             0.026,
-            "GRIP_OPEN"
-        )
-
-
-    def close_gripper(self):
-
-        self.move_gripper(
-            0.00,
-            0.00,
-            "GRIP_CLOSE"
-        )
-    # -------------------------------------------------
-    # RUN MOTIONS
-    # -------------------------------------------------
-    def run(self):
-
-        # -------------------------------------------------
-        # POSITIONS
-        # -------------------------------------------------
-        home = [ 0.0,0.0,0.0,0.0,0.0,0.0]
-
-        p1 = [-0.382,-1.451, -2.520, -1.079,-0.493,0.00]
-        p2 = [0.344,-0.186,-0.248,-0.055,-1.169,0.00]
-        p21 = [-0.756,-0.238,-0.014,1.769,-0.779,0.00]
-        #p1 = [0.122,0.368,-2.312,1.194,-0.090,0.00]
-        p3 = [0.486,-0.353,-0.082,0.235,-1.180,0.000]
-        p4 = [-0.517,-2.088,-1.824,0.227,-0.416,0.00]
-        p5 = [0.179,0.534,-1.878,1.774,-0.085,0.00]
-        p6 = [-0.364,-0.836,-0.394,1.831,-0.904,0.00]
-        # -------------------------------------------------
-        # EXECUTE SEQUENCE
-        # -------------------------------------------------
-
-        # clean startup home
-        self.move_to_position(
-            home,
-            "START_HOME"
-        )
-        self.close_gripper()
-
-        time.sleep(2)
-
-        self.open_gripper()
-
-        
-
-        
-        # # move to P1
-        # self.move_to_position(
-        #     p1,
-        #     "P1"
-        # )
-        
-        # self.open_gripper()
-
-        # # move to P2
-        # self.move_to_position(
-        #     p2,
-        #     "P2"
-        # )
-
-        # self.close_gripper()
-
-        # time.sleep(2)
-
-
-        #  # move to P3
-        # self.move_to_position(
-        #     p3,
-        #     "P3"
-        # )
-
-        #  # move to P4
-        # self.move_to_position(
-        #     p4,
-        #     "P4"
-        # )
-
-        #  # move to P5
-        # self.move_to_position(
-        #     p5,
-        #     "P5"
-        
-        # )
-        # # # move to P4
-        # # self.move_to_position(
-        # #     p6,
-        # #     "P6"
-        # # )
-
-        # # # IMPORTANT:
-        # # # intermediate safe pose
-        # # self.move_to_position(
-        # #     p1,
-        # #     "RETURN_P1"
-        # # )
-
-        # # final return home
-        # self.move_to_position(
-        #     home,
-        #     "RETURN_HOME"
-        # )
-
-        self.get_logger().info(
-            "Program completed ✔"
-        )
-
-
-# -------------------------------------------------
-# MAIN
-# -------------------------------------------------
+
+           z = 0.20 + (i / NUM_LEAVES) * TOTAL_HEIGHT
+
+
+           x = -0.45 + LEAF_RADIUS * math.cos(theta)
+           y = -0.30 + LEAF_RADIUS * math.sin(theta)
+
+
+           marker.pose.position.x = x
+           marker.pose.position.y = y
+           marker.pose.position.z = z
+
+
+           yaw = theta + math.pi
+
+
+           q = self.euler_to_quaternion(0, 0, yaw)
+
+
+           marker.pose.orientation = q
+
+
+           marker.scale.x = 0.10
+           marker.scale.y = 0.03
+           marker.scale.z = 0.01
+
+
+           marker.color.r = 1.0
+           marker.color.g = 0.45
+           marker.color.b = 0.0
+           marker.color.a = 1.0
+
+
+           marker_array.markers.append(marker)
+
+
+       self.marker_pub.publish(marker_array)
+
+
+       self.get_logger().info("All visual leaves added ✔")
+
+
+   # -------------------------------------------------
+   # ENABLE SINGLE LEAF COLLISION
+   # -------------------------------------------------
+   def enable_leaf_collision(self, leaf_id, x, y, z, theta):
+
+
+       scene = PlanningScene()
+       scene.is_diff = True
+
+
+       leaf = CollisionObject()
+
+
+       leaf.id = leaf_id
+       leaf.header.frame_id = "BASE"
+
+
+       primitive = SolidPrimitive()
+       primitive.type = SolidPrimitive.BOX
+
+
+       primitive.dimensions = [0.10, 0.015, 0.005]
+
+
+       pose = PoseStamped()
+       pose.header.frame_id = "BASE"
+
+
+       pose.pose.position.x = x
+       pose.pose.position.y = y
+       pose.pose.position.z = z
+
+
+       yaw = theta + math.pi
+
+
+       q = self.euler_to_quaternion(0, 0, yaw)
+
+
+       pose.pose.orientation = q
+
+
+       leaf.primitives.append(primitive)
+       leaf.primitive_poses.append(pose.pose)
+
+
+       leaf.operation = CollisionObject.ADD
+
+
+       scene.world.collision_objects.append(leaf)
+
+
+       self.scene_pub.publish(scene)
+
+
+       self.get_logger().info(f"{leaf_id} collision enabled ✔")
+
+
+   # -------------------------------------------------
+   # ENABLE TARGET LEAF BY INDEX
+   # -------------------------------------------------
+   def enable_leaf_by_index(self, index):
+
+
+       GOLDEN_ANGLE = math.radians(137.5)
+
+
+       NUM_LEAVES = 24
+       TOTAL_HEIGHT = 1.35
+       LEAF_RADIUS = 0.10
+
+
+       START_ANGLE = math.pi
+
+
+       theta = START_ANGLE + index * GOLDEN_ANGLE
+
+
+       z = 0.20 + (index / NUM_LEAVES) * TOTAL_HEIGHT
+
+
+       x = -0.45 + LEAF_RADIUS * math.cos(theta)
+       y = -0.30 + LEAF_RADIUS * math.sin(theta)
+
+
+       self.enable_leaf_collision(
+           f"leaf_{index}",
+           x,
+           y,
+           z,
+           theta
+       )
+
+
+   # -------------------------------------------------
+   def attach_leaf(self, leaf_id):
+
+
+       scene_pub = self.create_publisher(
+           PlanningScene,
+           "/planning_scene",
+           10
+       )
+
+
+       attached = AttachedCollisionObject()
+
+
+       attached.object.id = leaf_id
+       attached.object.header.frame_id = "link_tcp"
+       attached.object.operation = CollisionObject.ADD
+
+
+       attached.link_name = "link_tcp"
+
+
+       attached.object.pose.position.x = 0.08
+       attached.object.pose.position.y = 0.0
+       attached.object.pose.position.z = 0.0
+       attached.object.pose.orientation.w = 1.0
+
+
+       scene = PlanningScene()
+       scene.is_diff = True
+
+
+       scene.robot_state.attached_collision_objects.append(
+           attached
+       )
+
+
+       scene_pub.publish(scene)
+
+
+       self.get_logger().info(
+           f"Leaf {leaf_id} attached ✔"
+       )
+
+
+   # -------------------------------------------------
+   # REMOVE SINGLE LEAF MARKER
+   # -------------------------------------------------
+   def remove_leaf_marker(self, index):
+
+
+       marker_array = MarkerArray()
+
+
+       marker = Marker()
+
+
+       marker.header.frame_id = "BASE"
+
+
+       marker.ns = "leaves"
+       marker.id = index
+
+
+       marker.action = Marker.DELETE
+
+
+       marker_array.markers.append(marker)
+
+
+       self.marker_pub.publish(marker_array)
+
+
+       self.get_logger().info(f"leaf_{index} visual removed ✔")
+
+
+   # -------------------------------------------------
+   # GRIPPER
+   # -------------------------------------------------
+   def move_gripper(self, position):
+
+
+       goal = FollowJointTrajectory.Goal()
+
+
+       traj = JointTrajectory()
+       traj.joint_names = ["FGR_1", "FGR_2"]
+
+
+       point = JointTrajectoryPoint()
+       point.positions = [position]
+       point.time_from_start.sec = 1
+
+
+       traj.points.append(point)
+       goal.trajectory = traj
+
+
+       send_future = self.gripper_client.send_goal_async(goal)
+       rclpy.spin_until_future_complete(self, send_future)
+
+
+       goal_handle = send_future.result()
+       if not goal_handle.accepted:
+           self.get_logger().error("Gripper rejected ❌")
+           return
+
+
+       result_future = goal_handle.get_result_async()
+       rclpy.spin_until_future_complete(self, result_future)
+
+
+       self.get_logger().info("Gripper done ✔")
+
+
+   def pluck_motion(self, current_pose):
+       """
+       Adds real plucking behavior:
+       - slight downward tilt
+       - half rotation
+       - lift
+       """
+
+
+       j = list(current_pose)
+
+
+       # 1. small downward tilt (wrist_1_joint)
+       tilt_pose = j.copy()
+       tilt_pose[3] += 0.4
+
+
+       self.move_to_joints(tilt_pose, "TILT_DOWN")
+
+
+       # 2. half rotation (wrist_3_joint)
+       twist_pose = tilt_pose.copy()
+       twist_pose[5] += math.pi / 2
+
+
+       self.move_to_joints(twist_pose, "TWIST")
+
+
+       # 3. slight pull upward
+       lift_pose = twist_pose.copy()
+       lift_pose[2] += 0.05
+
+
+       self.move_to_joints(lift_pose, "LIFT_AFTER_PLUCK")
+
+
+   # -------------------------------------------------
+   # MOVE
+   # -------------------------------------------------
+   def move_to_joints(self, joints, name):
+
+
+       goal = MoveGroup.Goal()
+
+
+       goal.request.group_name = "arm_group"
+       goal.request.pipeline_id = "pilz_industrial_motion_planner"
+       goal.request.planner_id = "PTP"
+
+
+       goal.request.max_velocity_scaling_factor = 0.3
+       goal.request.max_acceleration_scaling_factor = 0.3
+
+
+       joint_names = [
+           "ROT_1",
+           "PITCH_1",
+           "PITCH_2",
+           "PITCH_3",
+           "ROT_2",
+           "ROT_3"
+       ]
+
+
+       constraints = Constraints()
+
+
+       for i in range(6):
+           jc = JointConstraint()
+           jc.joint_name = joint_names[i]
+           jc.position = float(joints[i])
+           jc.tolerance_above = 0.01
+           jc.tolerance_below = 0.01
+           jc.weight = 1.0
+           constraints.joint_constraints.append(jc)
+
+
+       goal.request.goal_constraints.append(constraints)
+
+
+       send_future = self.client.send_goal_async(goal)
+       rclpy.spin_until_future_complete(self, send_future)
+
+
+       goal_handle = send_future.result()
+       if not goal_handle.accepted:
+           self.get_logger().error(f"{name} rejected ❌")
+           return
+
+
+       result_future = goal_handle.get_result_async()
+       rclpy.spin_until_future_complete(self, result_future)
+
+
+       self.get_logger().info(f"{name} done ✔")
+
+
+   # -------------------------------------------------
+   # RUN PICK PIPELINE
+   # -------------------------------------------------
+   def run(self):
+
+
+       target_leaf = 6
+
+
+       # ---------------------------------
+       # leaf height
+       # ---------------------------------
+       NUM_LEAVES = 24
+       TOTAL_HEIGHT = 1.35
+
+
+       leaf_z = (
+           0.20
+           + (target_leaf / NUM_LEAVES)
+           * TOTAL_HEIGHT
+       )
+
+
+       # ---------------------------------
+       # visual + collision
+       # ---------------------------------
+       self.remove_leaf_marker(target_leaf)
+       # self.enable_leaf_by_index(target_leaf)
+
+
+       # ---------------------------------
+       # MOVE TO P2
+       # ---------------------------------
+       #p1=  [-0.399,-1.518,-2.439,-0.916,-0.433,0.00]
+       #p2 = [0.344,-0.186,-0.248,-0.055,-1.169,0.00]
+       #p3 = [0.345,-0.437,-0.248,0.146,-1.113,0.00]
+       #p4 = [-0.549,-1.966,-2.205,-0.247,-0.247,0.00]
+       #p5 = [0.399,-0.282,0.102,0.369,-1.135,0.000]
+       p2 = [-0.357,-1.867, -2.438, -0.529, -0.286,0.00
+       ]
+
+
+       self.move_to_joints(p2, "P2")
+
+
+       time.sleep(1.0)
+
+
+       self.move_gripper(0.0)
+
+
+       # ---------------------------------
+       # TCP POSE after P2
+       # ---------------------------------
+       tcp = self.get_tcp_pose()
+
+
+       if tcp is None:
+           return
+
+
+       current_x, current_y, current_z, tcp_yaw = tcp
+
+
+       self.get_logger().info(
+           f"TCP: x={current_x:.3f}, y={current_y:.3f}, "
+           f"yaw={math.degrees(tcp_yaw):.2f} deg"
+       )
+
+
+       # ---------------------------------
+       # LEAF CENTER (same model)
+       # ---------------------------------
+       GOLDEN_ANGLE = math.radians(137.5)
+       START_ANGLE = math.pi
+       LEAF_RADIUS = 0.10
+
+
+       theta = START_ANGLE + target_leaf * GOLDEN_ANGLE
+
+
+       leaf_x = -0.45 + LEAF_RADIUS * math.cos(theta)
+       leaf_y = -0.30 + LEAF_RADIUS * math.sin(theta)
+
+
+       # ---------------------------------
+       # LEAF CENTER SPHERE (DEBUG)
+       # ---------------------------------
+       sphere = Marker()
+       sphere.header.frame_id = "BASE"
+       sphere.header.stamp = self.get_clock().now().to_msg()
+
+
+       sphere.ns = "leaf_center"
+       sphere.id = target_leaf + 1000
+       sphere.type = Marker.SPHERE
+       sphere.action = Marker.ADD
+
+
+       sphere.pose.position.x = leaf_x
+       sphere.pose.position.y = leaf_y
+       sphere.pose.position.z = leaf_z
+
+
+       sphere.pose.orientation.w = 1.0
+
+
+       sphere.scale.x = 0.03
+       sphere.scale.y = 0.03
+       sphere.scale.z = 0.03
+
+
+       sphere.color.r = 1.0
+       sphere.color.g = 0.0
+       sphere.color.b = 0.0
+       sphere.color.a = 1.0
+
+
+       marker_array = MarkerArray()
+       marker_array.markers.append(sphere)
+
+
+       self.marker_pub.publish(marker_array)
+
+
+       self.get_logger().info(
+           f"Leaf center: x={leaf_x:.3f}, y={leaf_y:.3f}"
+       )
+
+
+       # ---------------------------------
+       # ANGLE BETWEEN POINTS
+       # ---------------------------------
+       angle1 = math.atan2(current_y, current_x)
+       angle2 = math.atan2(leaf_y, leaf_x)
+
+
+       angle = angle2 - angle1
+
+
+       relative_angle = angle - tcp_yaw
+
+
+       self.get_logger().info(
+           f"angle={math.degrees(angle):.2f} deg"
+       )
+
+
+       # ---------------------------------
+       # J5 = relative_angle
+       # ---------------------------------
+       target_j5 = relative_angle
+
+
+       self.get_logger().info(
+           f"target J5={math.degrees(target_j5):.2f} deg"
+       )
+
+
+       # ---------------------------------
+       # MOVE TO LEAF HEIGHT
+       # ---------------------------------
+       dz = leaf_z - current_z
+
+
+       target_joints = p2.copy()
+
+
+       target_joints[1] -= dz * 1.2
+       target_joints[2] += dz * 1.8
+
+
+       self.move_to_joints(
+           target_joints,
+           "MOVE_TO_LEAF_HEIGHT"
+       )
+
+
+       self.get_logger().info("Reached leaf height ✔")
+
+
+       # ---------------------------------
+       # APPLY ONLY J5 (ROT_2 = index 4)
+       # ---------------------------------
+       face_joints = target_joints.copy()
+
+
+       face_joints[4] = target_j5
+
+
+       self.move_to_joints(
+           face_joints,
+           "FACE_LEAF_J5"
+       )
+
+
+       self.get_logger().info("J5 aligned to leaf ✔")
+
+
+       # ---------------------------------
+       # FIX: refresh TCP AFTER J5 move
+       # compute pre-grasp from real TCP → leaf direction
+       # ---------------------------------
+       tcp = self.get_tcp_pose()
+
+
+       if tcp is None:
+           return
+
+
+       # Unpack all 4 values — we need tcp_x/y too
+       tcp_x, tcp_y, tcp_z, updated_yaw = tcp
+
+
+       self.get_logger().info(
+           f"TCP after J5 align:"
+           f" x={tcp_x:.3f}"
+           f" y={tcp_y:.3f}"
+           f" z={tcp_z:.3f}"
+           f" yaw={math.degrees(updated_yaw):.2f} deg"
+       )
+
+
+       # ---------------------------------
+       # APPROACH DIRECTION: TCP → leaf
+       # (not stem-relative theta anymore)
+       # ---------------------------------
+       dx = leaf_x - tcp_x
+       dy = leaf_y - tcp_y
+       dist_to_leaf = math.hypot(dx, dy)
+
+
+       if dist_to_leaf < 1e-4:
+           self.get_logger().error(
+               "TCP already at leaf position ❌"
+           )
+           return
+
+
+       # unit vector from TCP toward leaf
+       ux = dx / dist_to_leaf
+       uy = dy / dist_to_leaf
+
+
+       approach_dist = 0.0
+
+
+       # pre-grasp: step back along real approach vector
+       pre_x = leaf_x - approach_dist * ux
+       pre_y = leaf_y - approach_dist * uy
+
+
+       self.get_logger().info(
+           f"Pre-grasp target:"
+           f" x={pre_x:.3f}"
+           f" y={pre_y:.3f}"
+           f" z={leaf_z:.3f}"
+       )
+
+
+       grab_joints = self.solve_ik(
+           pre_x,
+           pre_y,
+           leaf_z,
+           updated_yaw,
+       )
+
+
+       if grab_joints is None:
+           return
+
+
+       # move to pre-grasp pose
+       self.move_to_joints(
+           grab_joints,
+           "PRE_GRASP"
+       )
+
+
+       # ---------------------------------
+       # FIX: refresh TCP again AFTER pre-grasp
+       # so straight_move_to_leaf starts from
+       # actual arm position
+       # ---------------------------------
+       tcp = self.get_tcp_pose()
+
+
+       if tcp is None:
+           return
+
+
+       _, _, _, post_pregrasp_yaw = tcp
+
+
+       # straight motion to actual leaf
+       self.straight_move_to_leaf(
+           leaf_x,
+           leaf_y,
+           leaf_z,
+           #post_pregrasp_yaw
+       )
+
+
+       self.get_logger().info("Reached leaf ✔")
+
+
+       # close gripper
+       self.move_gripper(0.00,0.00)
+
+
+       self.get_logger().info("Leaf grabbed ✔")
+
+
+       # ---------------------------------
+       # CURRENT TCP AFTER GRAB
+       # ---------------------------------
+       # tcp = self.get_tcp_pose()
+
+
+       # if tcp is not None:
+       #     grab_x, grab_y, grab_z, grab_yaw = tcp
+
+
+       #     self.get_logger().info(
+       #         f"After grab TCP:"
+       #         f" x={grab_x:.3f}"
+       #         f" y={grab_y:.3f}"
+       #         f" z={grab_z:.3f}"
+       #         f" yaw={math.degrees(grab_yaw):.2f} deg"
+       #     )
+
+
+       # downward semicircle motion
+       self.semicircle_down_motion(
+           post_pregrasp_yaw,
+           radius=0.02
+       )
+
+
+   # -------------------------------------------------
+   # QUAT
+   # -------------------------------------------------
+   def euler_to_quaternion(self, roll, pitch, yaw):
+
+
+       q = Quaternion()
+
+
+       q.x = math.sin(roll/2) * math.cos(pitch/2) * math.cos(yaw/2) - math.cos(roll/2) * math.sin(pitch/2) * math.sin(yaw/2)
+       q.y = math.cos(roll/2) * math.sin(pitch/2) * math.cos(yaw/2) + math.sin(roll/2) * math.cos(pitch/2) * math.sin(yaw/2)
+       q.z = math.cos(roll/2) * math.cos(pitch/2) * math.sin(yaw/2) - math.sin(roll/2) * math.sin(pitch/2) * math.cos(yaw/2)
+       q.w = math.cos(roll/2) * math.cos(pitch/2) * math.cos(yaw/2) + math.sin(roll/2) * math.sin(pitch/2) * math.sin(yaw/2)
+
+
+       return q
+
+
+   def solve_ik(
+       self,
+       x,
+       y,
+       z,
+       yaw,
+       lock_j4=None,
+       lock_j5=None
+   ):
+
+
+       request = GetPositionIK.Request()
+
+
+       request.ik_request.group_name = "arm_group"
+       request.ik_request.ik_link_name = "link_tcp"
+       request.ik_request.timeout.sec = 2
+
+
+       # ------------------------------
+       # IK seed state
+       # ------------------------------
+       request.ik_request.robot_state.joint_state.name = [
+           "ROT_1",
+           "PITCH_1",
+           "PITCH_2",
+           "PITCH_3",
+           "ROT_2",
+           "ROT_3"
+       ]
+
+
+       request.ik_request.robot_state.joint_state.position = [
+           0.0,
+           0.534,
+           -1.878,
+           lock_j4 if lock_j4 is not None else 1.774,
+           lock_j5 if lock_j5 is not None else -0.085,
+           0.0
+       ]
+
+
+       # ------------------------------
+       # LOCK J4 + J5 (optional)
+       # ------------------------------
+       if lock_j4 is not None and lock_j5 is not None:
+
+
+           constraints = Constraints()
+
+
+           j4 = JointConstraint()
+           j4.joint_name = "PITCH_3"
+           j4.position = lock_j4
+           j4.tolerance_above = 0.5
+           j4.tolerance_below = 0.5
+           j4.weight = 1.0
+
+
+           j5 = JointConstraint()
+           j5.joint_name = "ROT_2"
+           j5.position = lock_j5
+           j5.tolerance_above = 0.5
+           j5.tolerance_below = 0.5
+           j5.weight = 1.0
+
+
+           constraints.joint_constraints.append(j4)
+           constraints.joint_constraints.append(j5)
+
+
+           request.ik_request.constraints = constraints
+
+
+       # -----------------------------------
+       # TCP target pose
+       # -----------------------------------
+       pose = PoseStamped()
+       pose.header.frame_id = "BASE"
+
+
+       pose.pose.position.x = x
+       pose.pose.position.y = y
+       pose.pose.position.z = z
+
+
+       q = self.euler_to_quaternion(
+           math.pi / 2,
+           0.0,
+           yaw
+       )
+
+
+       pose.pose.orientation = q
+
+
+       request.ik_request.pose_stamped = pose
+
+
+       future = self.ik_client.call_async(
+           request
+       )
+
+
+       rclpy.spin_until_future_complete(
+           self,
+           future
+       )
+
+
+       result = future.result()
+
+
+       if (
+           result is None
+           or result.error_code.val != 1
+       ):
+           self.get_logger().error(
+               "IK failed ❌"
+           )
+           return None
+
+
+       joint_state = result.solution.joint_state
+
+
+       arm_joint_names = [
+           "ROT_1",
+           "PITCH_1",
+           "PITCH_2",
+           "PITCH_3",
+           "ROT_2",
+           "ROT_3"
+       ]
+
+
+       joints = []
+
+
+       for name in arm_joint_names:
+
+
+           idx = joint_state.name.index(
+               name
+           )
+
+
+           joints.append(
+               joint_state.position[idx]
+           )
+
+
+       return joints
+
+
+   def grab_leaf_ik(self, leaf_index):
+
+
+       GOLDEN_ANGLE = math.radians(137.5)
+
+
+       NUM_LEAVES = 24
+       TOTAL_HEIGHT = 1.35
+       START_ANGLE = math.pi
+       LEAF_RADIUS = 0.10
+
+
+       STEM_X = -0.45
+       STEM_Y = -0.30
+
+
+       theta = START_ANGLE + leaf_index * GOLDEN_ANGLE
+
+
+       leaf_z = (
+           0.20
+           + (leaf_index / NUM_LEAVES)
+           * TOTAL_HEIGHT
+       )
+
+
+       leaf_x = STEM_X + LEAF_RADIUS * math.cos(theta)
+       leaf_y = STEM_Y + LEAF_RADIUS * math.sin(theta)
+
+
+       self.get_logger().info(
+           f"Leaf {leaf_index}: "
+           f"x={leaf_x:.3f}, "
+           f"y={leaf_y:.3f}, "
+           f"z={leaf_z:.3f}"
+       )
+
+
+       target_x = 0.18
+       target_y = -0.28
+       target_z = leaf_z
+
+
+       orientation_rpy = (
+           math.pi,
+           0.0,
+           0.0
+       )
+
+
+       joints = self.solve_ik(
+           target_x,
+           target_y,
+           target_z,
+           orientation_rpy
+       )
+
+
+       if joints is None:
+           self.get_logger().error(
+               "Height IK failed ❌"
+           )
+           return
+
+
+       self.move_to_joints(
+           joints,
+           f"MOVE_TO_LEAF_HEIGHT_{leaf_index}"
+       )
+
+
+       self.get_logger().info(
+           "Reached leaf height ✔"
+       )
+
+
+   def get_tcp_pose(self):
+
+
+       try:
+           transform = self.tf_buffer.lookup_transform(
+               "BASE",
+               "link_tcp",
+               rclpy.time.Time()
+           )
+
+
+           x = transform.transform.translation.x
+           y = transform.transform.translation.y
+           z = transform.transform.translation.z
+
+
+           qx = transform.transform.rotation.x
+           qy = transform.transform.rotation.y
+           qz = transform.transform.rotation.z
+           qw = transform.transform.rotation.w
+
+
+           siny_cosp = 2 * (
+               qw * qz + qx * qy
+           )
+
+
+           cosy_cosp = 1 - 2 * (
+               qy * qy + qz * qz
+           )
+
+
+           yaw = math.atan2(
+               siny_cosp,
+               cosy_cosp
+           )
+
+
+           return x, y, z, yaw
+
+
+       except Exception as e:
+
+
+           self.get_logger().error(
+               f"Failed to read link_tcp pose: {e}"
+           )
+
+
+           return None
+
+
+   def straight_move_to_leaf(
+       self,
+       target_x,
+       target_y,
+       target_z,
+       yaw=None,          # make yaw optional
+       steps=5
+   ):
+       tcp = self.get_tcp_pose()
+       if tcp is None:
+           return
+
+
+       start_x, start_y, start_z, current_yaw = tcp
+
+
+       # Always use the live yaw from TCP — never stale caller yaw
+       use_yaw = current_yaw
+
+
+       self.get_logger().info(
+           f"Straight LIN move:"
+           f" ({start_x:.3f},{start_y:.3f},{start_z:.3f})"
+           f" → ({target_x:.3f},{target_y:.3f},{target_z:.3f})"
+           f" yaw={math.degrees(use_yaw):.2f} deg"
+       )
+
+
+       for i in range(1, steps + 1):
+
+
+           alpha = i / steps
+
+
+           x = start_x + alpha * (target_x - start_x)
+           y = start_y + alpha * (target_y - start_y)
+           z = start_z + alpha * (target_z - start_z)
+
+
+           self.move_to_pose_lin(
+               x,
+               y,
+               z,
+               use_yaw,      # consistent live yaw throughout
+               f"APPROACH_LIN_{i}"
+           )
+
+
+       self.get_logger().info("Straight LIN motion complete ✔")
+
+
+   def semicircle_down_motion(
+       self,
+       yaw,
+       radius=0.02,
+       steps=10
+   ):
+
+
+       tcp = self.get_tcp_pose()
+
+
+       if tcp is None:
+           return
+
+
+       start_x, start_y, start_z, _ = tcp
+
+
+       center_y = start_y
+       center_z = start_z - radius
+
+
+       for i in range(steps + 1):
+
+
+           alpha = i / steps
+
+
+           theta = (
+               math.pi / 2
+               - alpha * math.pi
+           )
+
+
+           y = (
+               center_y
+               - radius * math.cos(theta)
+           )
+
+
+           z = (
+               center_z
+               + radius * math.sin(theta)
+           )
+
+
+           x = start_x
+
+
+           self.move_to_pose_lin(
+               x,
+               y,
+               z,
+               yaw,
+               f"SEMICIRCLE_{i}"
+           )
+
+
+       self.get_logger().info(
+           f"Semicircle target end:"
+           f" x={x:.3f}"
+           f" y={y:.3f}"
+           f" z={z:.3f}"
+       )
+
+
+       tcp = self.get_tcp_pose()
+
+
+       if tcp is not None:
+           real_x, real_y, real_z, real_yaw = tcp
+
+
+           self.get_logger().info(
+               f"Real TCP end:"
+               f" x={real_x:.3f}"
+               f" y={real_y:.3f}"
+               f" z={real_z:.3f}"
+               f" yaw={math.degrees(real_yaw):.2f} deg"
+           )
+
+
+       self.get_logger().info(
+           "Semicircle complete ✔"
+       )
+
+
+   def move_to_pose_lin(
+       self,
+       x,
+       y,
+       z,
+       yaw,
+       name
+   ):
+
+
+       goal = MoveGroup.Goal()
+
+
+       goal.request.group_name = "arm_group"
+       goal.request.pipeline_id = (
+           "pilz_industrial_motion_planner"
+       )
+       goal.request.planner_id = "LIN"
+
+
+       goal.request.max_velocity_scaling_factor = 0.1
+       goal.request.max_acceleration_scaling_factor = 0.1
+
+
+       pose = PoseStamped()
+       pose.header.frame_id = "BASE"
+
+
+       pose.pose.position.x = x
+       pose.pose.position.y = y
+       pose.pose.position.z = z
+
+
+       q = self.euler_to_quaternion(
+           math.pi / 2,
+           0.0,
+           yaw
+       )
+
+
+       pose.pose.orientation = q
+
+
+       constraint = Constraints()
+
+
+       from moveit_msgs.msg import PositionConstraint
+       from moveit_msgs.msg import OrientationConstraint
+       from shape_msgs.msg import SolidPrimitive
+
+
+       pc = PositionConstraint()
+       pc.header.frame_id = "BASE"
+       pc.link_name = "link_tcp"
+
+
+       box = SolidPrimitive()
+       box.type = SolidPrimitive.BOX
+       box.dimensions = [0.001, 0.001, 0.001]
+
+
+       pc.constraint_region.primitives.append(box)
+       pc.constraint_region.primitive_poses.append(
+           pose.pose
+       )
+
+
+       oc = OrientationConstraint()
+       oc.header.frame_id = "BASE"
+       oc.link_name = "link_tcp"
+
+
+       oc.orientation = pose.pose.orientation
+
+
+       oc.absolute_x_axis_tolerance = 0.01
+       oc.absolute_y_axis_tolerance = 0.01
+       oc.absolute_z_axis_tolerance = 0.01
+       oc.weight = 1.0
+
+
+       constraint.position_constraints.append(pc)
+       constraint.orientation_constraints.append(oc)
+
+
+       goal.request.goal_constraints.append(
+           constraint
+       )
+
+
+       send_future = self.client.send_goal_async(
+           goal
+       )
+
+
+       rclpy.spin_until_future_complete(
+           self,
+           send_future
+       )
+
+
+       goal_handle = send_future.result()
+
+
+       if not goal_handle.accepted:
+           self.get_logger().error(
+               f"{name} rejected ❌"
+           )
+           return
+
+
+       result_future = (
+           goal_handle.get_result_async()
+       )
+
+
+       rclpy.spin_until_future_complete(
+           self,
+           result_future
+       )
+
+
+       self.get_logger().info(
+           f"{name} done ✔"
+       )
+
+
+
+
 def main(args=None):
+   rclpy.init(args=args)
+   node = MoveWithMoveIt()
+   node.run()
+   rclpy.spin(node)
+   node.destroy_node()
+   rclpy.shutdown()
 
-    rclpy.init(args=args)
 
-    node = IndustrialMotion()
-
-    node.run()
-
-    rclpy.spin(node)
-
-    node.destroy_node()
-
-    rclpy.shutdown()
 
 
 if __name__ == "__main__":
-    main()
+   main()
