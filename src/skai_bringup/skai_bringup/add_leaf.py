@@ -328,8 +328,8 @@ class IndustrialMotion(Node):
     def open_gripper(self):
 
         self.move_gripper(
-            0.0,
-            0.0,
+            -0.026,
+             0.026,
             "GRIP_OPEN"
         )
 
@@ -337,8 +337,8 @@ class IndustrialMotion(Node):
     def close_gripper(self):
 
         self.move_gripper(
-            0.026,
-            -0.026,
+            0.00,
+            0.00,
             "GRIP_CLOSE"
         )
     # -------------------------------------------------
@@ -368,62 +368,70 @@ class IndustrialMotion(Node):
             home,
             "START_HOME"
         )
-
-        # move to P1
-        self.move_to_position(
-            p1,
-            "P1"
-        )
-        
-        self.open_gripper()
-
-        # move to P2
-        self.move_to_position(
-            p2,
-            "P2"
-        )
-
         self.close_gripper()
 
         time.sleep(2)
 
+        self.open_gripper()
 
-         # move to P3
-        self.move_to_position(
-            p3,
-            "P3"
-        )
-
-         # move to P4
-        self.move_to_position(
-            p4,
-            "P4"
-        )
-
-         # move to P5
-        self.move_to_position(
-            p5,
-            "P5"
         
-        )
-        # # move to P4
-        # self.move_to_position(
-        #     p6,
-        #     "P6"
-        # )
 
-        # # IMPORTANT:
-        # # intermediate safe pose
+        
+        # # move to P1
         # self.move_to_position(
         #     p1,
-        #     "RETURN_P1"
+        #     "P1"
+        # )
+        
+        # self.open_gripper()
+
+        # # move to P2
+        # self.move_to_position(
+        #     p2,
+        #     "P2"
         # )
 
-        # final return home
-        self.move_to_position(
-            home,
-            "RETURN_HOME"
-        )
+        # self.close_gripper()
+
+        # time.sleep(2)
+
+
+        #  # move to P3
+        # self.move_to_position(
+        #     p3,
+        #     "P3"
+        # )
+
+        #  # move to P4
+        # self.move_to_position(
+        #     p4,
+        #     "P4"
+        # )
+
+        #  # move to P5
+        # self.move_to_position(
+        #     p5,
+        #     "P5"
+        
+        # )
+        # # # move to P4
+        # # self.move_to_position(
+        # #     p6,
+        # #     "P6"
+        # # )
+
+        # # # IMPORTANT:
+        # # # intermediate safe pose
+        # # self.move_to_position(
+        # #     p1,
+        # #     "RETURN_P1"
+        # # )
+
+        # # final return home
+        # self.move_to_position(
+        #     home,
+        #     "RETURN_HOME"
+        # )
 
         self.get_logger().info(
             "Program completed ✔"
