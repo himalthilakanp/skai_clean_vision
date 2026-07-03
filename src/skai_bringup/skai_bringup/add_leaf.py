@@ -413,7 +413,7 @@ class MoveWithMoveIt(Node):
    # -------------------------------------------------
    # GRIPPER
    # -------------------------------------------------
-   def move_gripper(self, position):
+   def move_gripper(self, left, right):
 
 
        goal = FollowJointTrajectory.Goal()
@@ -424,7 +424,7 @@ class MoveWithMoveIt(Node):
 
 
        point = JointTrajectoryPoint()
-       point.positions = [position]
+       point.positions = [left,right]
        point.time_from_start.sec = 1
 
 
@@ -594,7 +594,7 @@ class MoveWithMoveIt(Node):
        time.sleep(1.0)
 
 
-       self.move_gripper(0.0)
+       self.move_gripper(0.00,0.00)
 
 
        # ---------------------------------
@@ -853,7 +853,7 @@ class MoveWithMoveIt(Node):
 
 
        # close gripper
-       self.move_gripper(0.00,0.00)
+       self.move_gripper(-0.026,0.026)
 
 
        self.get_logger().info("Leaf grabbed ✔")
@@ -884,7 +884,7 @@ class MoveWithMoveIt(Node):
            radius=0.02
        )
 
-
+       self.move_gripper(0.00,0.00)
    # -------------------------------------------------
    # QUAT
    # -------------------------------------------------
